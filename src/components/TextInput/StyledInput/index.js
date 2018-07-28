@@ -1,11 +1,13 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'react-emotion';
 import { lightGrey, ultraDarkGrey, red } from '../../../colors';
 import { transition } from '../../../styles';
 import withTheme from '../../ThemeContext/withTheme';
 
-const StyledInput = styled('input')({
+const styleAsInput = Component => styled(Component)({
   padding: '8px 20px',
+  width: 256,
   backgroundColor: lightGrey,
   font: 'inherit',
   border: 0,
@@ -13,12 +15,12 @@ const StyledInput = styled('input')({
   outlineWidth: 0,
   boxSizing: 'border-box',
   border: `2px solid ${lightGrey}`,
-  borderRadius: 30,
+  borderRadius: 20.5,
   transition,
   ':focus': {
     borderColor: ultraDarkGrey
   }
-}, ({ hasError, fullWidth, disabled, theme }) => {
+}, ({ hasError, fullWidth, disabled, multiLine, theme }) => {
   const styles = [];
 
   styles.push({
@@ -34,22 +36,37 @@ const StyledInput = styled('input')({
 
   if (fullWidth) styles.push({ width: '100%' });
 
-  if (disabled) styles.push({ opacity: .5 });
+  if (disabled) styles.push({
+    opacity: .5,
+    cursor: 'not-allowed'
+  });
+
+  if (multiLine) styles.push({
+    minHeight: 23 + theme.fontSize,
+    resize: 'none'
+  });
 
   return styles;
 });
+
+const StyledInput = ({ multiLine, ...props }) => {
+  const Input = styleAsInput(multiLine ? 'textarea' : 'input');
+  return <Input multiLine={multiLine} {...props} />
+};
 
 StyledInput.propTypes = {
   hasError: PropTypes.bool,
   fullWidth: PropTypes.bool,
   disabled: PropTypes.bool,
+  multiLine: PropTypes.bool,
   theme: PropTypes.object.isRequired
 };
 
 StyledInput.defaultProps = {
   hasError: false,
   fullWidth: false,
-  disabled: false
+  disabled: false,
+  multiLine: false
 };
 
 export default withTheme(StyledInput);

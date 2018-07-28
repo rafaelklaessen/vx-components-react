@@ -15,18 +15,28 @@ export default class TextInput extends Component {
     type: PropTypes.string,
     fullWidth: PropTypes.bool,
     disabled: PropTypes.bool,
+    multiLine: PropTypes.bool
   };
 
   static defaultProps = {
     type: 'text',
     fullWidth: false,
-    disabled: false
+    disabled: false,
+    multiLine: false
   };
 
   random = Math.random().toString();
 
   render = () => {
-    const { id, label, errorText, disabled, ...props } = this.props;
+    const {
+      id,
+      label,
+      errorText,
+      type,
+      disabled,
+      multiLine,
+      ...props
+    } = this.props;
 
     return (
       <div>
@@ -37,6 +47,8 @@ export default class TextInput extends Component {
           id={id || this.random}
           hasError={!!errorText}
           disabled={disabled}
+          type={multiLine ? null : type}
+          multiLine={multiLine}
           {...props}
         />
         {errorText &&

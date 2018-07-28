@@ -19,23 +19,11 @@ initialState = { value: '' };
 
 With an error:
 ```js
-initialState = { value: '' };
-
 <TextInput
   label="Enter your name"
   placeholder="John Doe"
+  defaultValue="Foo"
   errorText="Name is already taken!"
-/>
-```
-
-Disabled:
-```js
-initialState = { value: '' };
-
-<TextInput
-  label="Enter your name"
-  placeholder="John Doe"
-  disabled
 />
 ```
 
@@ -64,6 +52,25 @@ Fullwidth:
   label="Enter your name"
   placeholder="John Doe"
   fullWidth
+/>
+```
+
+Disabled:
+```js
+<TextInput
+  label="Enter your name"
+  placeholder="John Doe"
+  disabled
+/>
+```
+
+`multiLine`:
+```js
+<TextInput
+  label="Write something about yourself"
+  placeholder="My name is Foo and I live in Bar"
+  multiLine
+  rows={6}
 />
 ```
 
