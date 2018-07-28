@@ -10,7 +10,8 @@ const Card = styled('article')({
   color: black,
   backgroundColor: cardGrey
 }, ({ theme }) => ({
-  fontFamily: theme.fontFamily
+  fontFamily: theme.fontFamily,
+  fontSize: theme.fontSize
 }));
 
 Card.propTypes = {

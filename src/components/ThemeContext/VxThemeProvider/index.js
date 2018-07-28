@@ -1,21 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ThemeContext, { defaultTheme } from '../index';
-import { defaultFontFamily } from '../../../styles';
+import FontProvider from './FontProvider';
 
-const fontStyle = { fontFamily: defaultFontFamily };
-
-const VxThemeProvider = ({ theme, ...props }) => (
-  <div style={fontStyle}>
-    <ThemeContext.Provider
-      value={{ ...defaultTheme, ...theme }}
-      {...props}
-    />
-  </div>
+const VxThemeProvider = ({ theme, children, ...props }) => (
+  <ThemeContext.Provider
+    value={{ ...defaultTheme, ...theme }}
+    {...props}
+  >
+    <FontProvider>
+      {children}
+    </FontProvider>
+  </ThemeContext.Provider>
 );
 
 VxThemeProvider.propTypes = {
-  theme: PropTypes.object
+  theme: PropTypes.object,
+  children: PropTypes.node
 };
 
 export default VxThemeProvider;

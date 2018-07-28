@@ -16,7 +16,8 @@ const generateLink = (Component) => {
     }
   }, ({ theme }) => ({
     color: theme.primaryColor,
-    fontFamily: theme.fontFamily
+    fontFamily: theme.fontFamily,
+    fontSize: theme.fontSize
   }));
 
   Styled.propTypes = {

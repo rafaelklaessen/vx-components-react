@@ -6,6 +6,7 @@ export const defaultTheme = {
   primaryColor: red,
   secondaryColor: darkGrey,
   fontFamily: defaultFontFamily,
+  fontSize: 18,
   titleFontFamily
 };
 

@@ -5,7 +5,8 @@ import withTheme from '../../ThemeContext/withTheme';
 const CardContent = styled('div')({
   lineHeight: 1.8
 }, ({ theme }) => ({
-  fontFamily: theme.fontFamily
+  fontFamily: theme.fontFamily,
+  fontSize: theme.fontSize
 }));
 
 CardContent.propTypes = {

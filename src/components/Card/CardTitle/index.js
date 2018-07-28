@@ -4,10 +4,11 @@ import withTheme from '../../ThemeContext/withTheme';
 
 const CardTitle = styled('h3')({
   marginTop: 0,
-  marginBottom: 12
+  marginBottom: 8
 }, ({ theme }) => ({
   color: theme.primaryColor,
-  fontFamily: theme.fontFamily
+  fontFamily: theme.fontFamily,
+  fontSize: theme.fontSize * 1.1
 }));
 
 CardTitle.propTypes = {

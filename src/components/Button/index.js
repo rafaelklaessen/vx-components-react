@@ -30,9 +30,11 @@ const Button = styled('button')({
     backgroundColor: color
   });
 
-  styles.push({ fontFamily: bold ? theme.titleFontFamily : theme.fontFamily });
-
-  styles.push({ fontWeight: bold ? 800 : 700 });
+  styles.push({
+    fontFamily: bold ? theme.titleFontFamily : theme.fontFamily,
+    fontSize: theme.fontSize,
+    fontWeight: bold ? 800 : 700
+  });
 
   if (bold) styles.push({
     lineHeight: 1.8,
