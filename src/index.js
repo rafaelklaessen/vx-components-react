@@ -1,9 +1,9 @@
-import React, {Component} from 'react'
-
-export default class extends Component {
-  render() {
-    return <div>
-      <h2>Welcome to React components</h2>
-    </div>
-  }
-}
+export BigTitle from './components/BigTitle';
+export BlockQuote from './components/BlockQuote';
+export Button from './components/Button';
+export Card from './components/Card';
+export Code from './components/Code';
+export EnormousTitle from './components/EnormousTitle';
+export Link from './components/Link';
+export Space from './components/Space';
+export VxThemeProvider from './components/ThemeContext/VxThemeProvider';
