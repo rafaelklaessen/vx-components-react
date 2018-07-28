@@ -21,7 +21,7 @@ const Button = styled('button')({
   ':active': {
     transform: 'scale(.95)'
   }
-}, ({ theme, bold, imperfect, primary }) => {
+}, ({ bold, imperfect, primary, theme }) => {
   const styles = [];
 
   const color = primary ? theme.primaryColor : theme.secondaryColor;
