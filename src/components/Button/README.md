@@ -2,4 +2,46 @@
 <Button>
   Click me
 </Button>
+
+<br />
+<br />
+
+<Button primary>
+  Click me
+</Button>
+
+<br />
+<br />
+
+<Button bold>
+  Click me
+</Button>
+
+<br />
+<br />
+
+<Button bold primary>
+  Click me
+</Button>
+
+<br />
+<br />
+
+<Button imperfect>
+  Click me
+</Button>
+
+<br />
+<br />
+
+<Button bold imperfect>
+  Click me
+</Button>
+
+<br />
+<br />
+
+<Button bold imperfect primary>
+  Click me
+</Button>
 ```

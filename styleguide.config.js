@@ -24,5 +24,8 @@ module.exports = {
         }
       ]
     }
-  }
+  },
+  require: [
+    path.join(__dirname, 'styleguide/app.css')
+  ]
 };

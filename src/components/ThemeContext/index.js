@@ -1,10 +1,10 @@
 import React from 'react';
-import { red, grey } from '../../colors';
+import { red, darkGrey } from '../../colors';
 import { defaultFontFamily, titleFontFamily } from '../../styles';
 
 export const defaultTheme = {
   primaryColor: red,
-  secondaryColor: grey,
+  secondaryColor: darkGrey,
   fontFamily: defaultFontFamily,
   titleFontFamily
 };
