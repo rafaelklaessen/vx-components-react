@@ -20,7 +20,7 @@
   },
   "dependencies": {},
   "peerDependencies": {
-    "react": "16.x"
+    "react": "^16.3.0"
   },
   "devDependencies": {
     "nwb": "0.21.x",
