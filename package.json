@@ -1,7 +1,7 @@
 {
   "name": "vx-components-react",
-  "version": "1.0.0",
-  "description": "vx-components-react React component",
+  "version": "0.1.0",
+  "description": "vx-components-react component library",
   "main": "lib/index.js",
   "module": "es/index.js",
   "files": [
@@ -27,11 +27,16 @@
     "react": "^16.4.1",
     "react-dom": "^16.4.1"
   },
-  "author": "",
-  "homepage": "",
+  "author": "Rafael Klaessen <rafaelklaessen.nl@gmail.com> (https://rafaelklaessen.nl)",
+  "homepage": "https://vx-components-react.netlify.com",
   "license": "MIT",
-  "repository": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rafaelklaessen/vx-components-react.git"
+  },
   "keywords": [
-    "react-component"
+    "vx-components",
+    "react-component",
+    "component-library"
   ]
 }
