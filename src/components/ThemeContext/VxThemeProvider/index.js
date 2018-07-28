@@ -1,9 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ThemeContext, { defaultTheme } from '../index';
+import { defaultFontFamily } from '../../../styles';
 
-const VxThemeProvider = ({ theme, ...props }) =>
-  <ThemeContext.Provider value={{ ...defaultTheme, ...theme }} {...props} />;
+const fontStyle = { fontFamily: defaultFontFamily };
+
+const VxThemeProvider = ({ theme, ...props }) => (
+  <div style={fontStyle}>
+    <ThemeContext.Provider
+      value={{ ...defaultTheme, ...theme }}
+      {...props}
+    />
+  </div>
+);
 
 VxThemeProvider.propTypes = {
   theme: PropTypes.object

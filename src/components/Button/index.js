@@ -1,14 +1,8 @@
 import PropTypes from 'prop-types';
-import styled, { keyframes } from 'react-emotion';
+import styled from 'react-emotion';
 import withTheme from '../ThemeContext/withTheme';
 import { white } from '../../colors';
 import { transition } from '../../styles';
-
-const focused = keyframes`
-  0% { transform: scale(.95); }
-  50% { transform: scale(1.05); }
-  100% { transform: scale(.95); }
-`;
 
 const Button = styled('button')({
   padding: '8px 20px',
@@ -26,10 +20,6 @@ const Button = styled('button')({
   },
   ':active': {
     transform: 'scale(.95)'
-  },
-  ':focus': {
-    animation: `${focused} 4s ease infinite`,
-    transformOrigin: 'center bottom'
   }
 }, ({ theme, bold, imperfect, primary }) => {
   const styles = [];
@@ -42,9 +32,10 @@ const Button = styled('button')({
 
   styles.push({ fontFamily: bold ? theme.titleFontFamily : theme.fontFamily });
 
+  styles.push({ fontWeight: bold ? 800 : 700 });
+
   if (bold) styles.push({
     lineHeight: 1.8,
-    fontWeight: 800,
     textTransform: 'uppercase'
   });
 
