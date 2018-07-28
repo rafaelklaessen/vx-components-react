@@ -11,7 +11,7 @@
     "umd"
   ],
   "scripts": {
-    "build": "nwb build-react-component",
+    "build": "mv -v .babelrc .temp_babelrc && nwb build-react-component && mv -v .temp_babelrc .babelrc",
     "clean": "nwb clean-module && nwb clean-demo",
     "start": "nwb serve-react-demo",
     "test": "nwb test-react",
@@ -21,7 +21,8 @@
     "docs:static": "npx styleguidist build"
   },
   "dependencies": {
-    "prop-types": "^15.6.2"
+    "prop-types": "^15.6.2",
+    "react-display-name": "^0.2.4"
   },
   "peerDependencies": {
     "react": "^16.3.0",
@@ -29,12 +30,18 @@
   },
   "devDependencies": {
     "babel-loader": "^7.1.5",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "css-loader": "^1.0.0",
     "emotion": "^9.2.6",
     "nwb": "0.21.x",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-emotion": "^9.2.6",
-    "react-styleguidist": "^7.1.1"
+    "react-styleguidist": "^7.1.1",
+    "style-loader": "^0.21.0",
+    "webpack": "^4.16.3"
   },
   "author": "Rafael Klaessen <rafaelklaessen.nl@gmail.com> (https://rafaelklaessen.nl)",
   "homepage": "https://vx-components-react.netlify.com",

@@ -6,7 +6,7 @@ module.exports = {
     warn: (message) => {
       const ignored =
         'matches a pattern defined in “components” or “sections” options in your style guide config but doesn’t export a component.';
-      if (message.indexOf(ignored) >= 0) return;
+      if (message.includes(ignored)) return;
       console.warn(message);
     }
   },
@@ -17,6 +17,10 @@ module.exports = {
           test: /\.js?$/,
           exclude: /node_modules/,
           loader: 'babel-loader'
+        },
+        {
+          test: /\.css$/,
+          use: ['style-loader', 'css-loader']
         }
       ]
     }
