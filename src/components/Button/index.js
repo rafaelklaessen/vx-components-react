@@ -21,7 +21,7 @@ const Button = styled('button')({
   ':active': {
     transform: 'scale(.95)'
   }
-}, ({ bold, imperfect, primary, theme }) => {
+}, ({ bold, imperfect, primary, fullWidth, disabled, theme }) => {
   const styles = [];
 
   const color = primary ? theme.primaryColor : theme.secondaryColor;
@@ -43,6 +43,16 @@ const Button = styled('button')({
 
   if (imperfect) styles.push({ borderTopRightRadius: 0 });
 
+  if (fullWidth) styles.push({ width: '100%' });
+
+  if (disabled) styles.push({
+    opacity: .5,
+    cursor: 'not-allowed',
+    ':hover': {
+      transform: 'scale(1)'
+    }
+  });
+
   return styles;
 });
 
@@ -50,13 +60,17 @@ Button.propTypes = {
   big: PropTypes.bool,
   imperfect: PropTypes.bool,
   primary: PropTypes.bool,
+  fullWidth: PropTypes.bool,
+  disabled: PropTypes.bool,
   theme: PropTypes.object.isRequired
 };
 
 Button.defaultProps = {
   big: false,
   imperfect: false,
-  primary: false
+  primary: false,
+  fullWidth: false,
+  disabled: false
 };
 
 export default withTheme(Button);

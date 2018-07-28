@@ -44,4 +44,25 @@
 <Button bold imperfect primary>
   Click me
 </Button>
+
+<br />
+<br />
+
+<Button bold primary disabled>
+  Click me
+</Button>
+
+<br />
+<br />
+
+<Button bold disabled>
+  Click me
+</Button>
+
+<br />
+<br />
+
+<Button bold imperfect primary fullWidth>
+  Click me
+</Button>
 ```
