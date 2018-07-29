@@ -1,0 +1,3 @@
+```js
+<StyledRadio type="radio" />
+```

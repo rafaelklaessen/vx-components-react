@@ -7,4 +7,8 @@ Space.propTypes = {
   height: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
 };
 
+Space.defaultProps = {
+  height: 24
+};
+
 export default Space;

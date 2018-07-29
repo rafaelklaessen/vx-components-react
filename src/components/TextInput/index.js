@@ -13,6 +13,8 @@ export default class TextInput extends Component {
     onChange: PropTypes.func,
     errorText: PropTypes.string,
     type: PropTypes.string,
+    wrapper: PropTypes.func,
+    wrapperProps: PropTypes.object,
     fullWidth: PropTypes.bool,
     disabled: PropTypes.bool,
     multiLine: PropTypes.bool
@@ -20,6 +22,8 @@ export default class TextInput extends Component {
 
   static defaultProps = {
     type: 'text',
+    wrapper: null,
+    wrapperProps: {},
     fullWidth: false,
     disabled: false,
     multiLine: false
@@ -33,13 +37,17 @@ export default class TextInput extends Component {
       label,
       errorText,
       type,
+      wrapper,
+      wrapperProps,
       disabled,
       multiLine,
       ...props
     } = this.props;
 
+    const Wrapper = wrapper || 'div';
+
     return (
-      <div>
+      <Wrapper {...wrapperProps}>
         <InputLabel htmlFor={id || this.random} disabled={disabled}>
           {label}
         </InputLabel>
@@ -54,7 +62,7 @@ export default class TextInput extends Component {
         {errorText &&
           <ErrorText>{errorText}</ErrorText>
         }
-      </div>
+      </Wrapper>
     );
   };
 }

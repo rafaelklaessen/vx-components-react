@@ -82,3 +82,30 @@ You can also pass an ID to the `TextInput`. If you don't pass one, a random ID w
   placeholder="John Doe"
 />
 ```
+
+You can customize the wrapper through `wrapperProps` or through `wrapper`:
+```js
+<TextInput
+  label="Enter your name"
+  placeholder="John Doe"
+  wrapperProps={{ style: { backgroundColor: 'green' } }}
+/>
+```
+
+Note that `wrapperProps` will be passed on to the custom wrapper too.
+```js
+const styled = require('react-emotion').default;
+
+const CustomWrapper = styled('div')({
+  backgroundColor: 'purple'
+}, ({ space }) => ({
+  margin: space
+}));
+
+<TextInput
+  label="Enter your name"
+  placeholder="John Doe"
+  wrapper={CustomWrapper}
+  wrapperProps={{ space: 56 }}
+/>
+```
