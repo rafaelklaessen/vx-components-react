@@ -17,8 +17,8 @@
     "test": "nwb test-react",
     "test:coverage": "nwb test-react --coverage",
     "test:watch": "nwb test-react --server",
-    "docs": "npx styleguidist server",
-    "docs:static": "npx styleguidist build"
+    "docs": "styleguidist server",
+    "docs:static": "styleguidist build"
   },
   "dependencies": {
     "prop-types": "^15.6.2",
