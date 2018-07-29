@@ -8,10 +8,6 @@ export default class Radio extends Component {
   static propTypes = {
     id: PropTypes.string,
     label: PropTypes.node,
-    checked: PropTypes.bool,
-    onChange: PropTypes.func,
-    name: PropTypes.string,
-    value: PropTypes.string,
     wrapper: PropTypes.func,
     wrapperProps: PropTypes.object,
     disabled: PropTypes.bool

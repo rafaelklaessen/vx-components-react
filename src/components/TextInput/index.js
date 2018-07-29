@@ -8,9 +8,6 @@ export default class TextInput extends Component {
   static propTypes = {
     id: PropTypes.string,
     label: PropTypes.node,
-    placeholder: PropTypes.string,
-    value: PropTypes.string,
-    onChange: PropTypes.func,
     errorText: PropTypes.string,
     type: PropTypes.string,
     wrapper: PropTypes.func,
