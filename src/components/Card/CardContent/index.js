@@ -3,7 +3,7 @@ import styled from 'react-emotion';
 import withTheme from '../../ThemeContext/withTheme';
 
 const CardContent = styled('div')({
-  lineHeight: 1.8
+  lineHeight: 1.4
 }, ({ theme }) => ({
   fontFamily: theme.fontFamily,
   fontSize: theme.fontSize

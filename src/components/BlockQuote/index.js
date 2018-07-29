@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import styled from 'react-emotion';
-import ultraDarkGrey from '../../colors';
+import { ultraDarkGrey } from '../../colors';
 import withTheme from '../ThemeContext/withTheme';
 
 const BlockQuote = styled('blockquote')({

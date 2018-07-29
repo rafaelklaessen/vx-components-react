@@ -64,7 +64,7 @@ Disabled:
 />
 ```
 
-`multiLine`:
+`multiLine` (renders a `textarea`):
 ```js
 <TextInput
   label="Write something about yourself"

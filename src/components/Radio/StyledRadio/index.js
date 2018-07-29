@@ -16,7 +16,7 @@ const StyledRadio = styled('input')({
 }, ({ disabled, theme }) => {
   const styles = [];
 
-  const size = theme.fontSize + theme.fontSize / 3;
+  const size = theme.fontSize + theme.fontSize / 9;
 
   styles.push({
     width: size,

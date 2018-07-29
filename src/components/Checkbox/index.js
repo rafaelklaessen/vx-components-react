@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import RadioWrapper from './RadioWrapper';
-import StyledRadio from './StyledRadio';
-import RadioLabel from './RadioLabel';
+import CheckboxWrapper from './CheckboxWrapper';
+import StyledCheckbox from './StyledCheckbox';
+import CheckboxLabel from './CheckboxLabel';
 
-export default class Radio extends Component {
+export default class Checkbox extends Component {
   static propTypes = {
     id: PropTypes.string,
     label: PropTypes.node,
@@ -14,13 +14,15 @@ export default class Radio extends Component {
     value: PropTypes.string,
     wrapper: PropTypes.func,
     wrapperProps: PropTypes.object,
-    disabled: PropTypes.bool
+    disabled: PropTypes.bool,
+    indeterminate: PropTypes.bool
   };
 
   static defaultProps = {
     wrapper: null,
     wrapperProps: {},
-    disabled: false
+    disabled: false,
+    indeterminate: false
   };
 
   random = Math.random().toString();
@@ -35,19 +37,19 @@ export default class Radio extends Component {
       ...props
     } = this.props;
 
-    const Wrapper = wrapper || RadioWrapper;
+    const Wrapper = wrapper || CheckboxWrapper;
 
     return (
       <Wrapper {...wrapperProps}>
-        <StyledRadio
+        <StyledCheckbox
           id={id || this.random}
           disabled={disabled}
-          type="radio"
+          type="checkbox"
           {...props}
         />
-        <RadioLabel htmlFor={id || this.random} disabled={disabled}>
+        <CheckboxLabel htmlFor={id || this.random} disabled={disabled}>
           {label}
-        </RadioLabel>
+        </CheckboxLabel>
       </Wrapper>
     );
   };

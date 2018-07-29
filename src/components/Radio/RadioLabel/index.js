@@ -4,9 +4,9 @@ import { ultraDarkGrey } from '../../../colors';
 import withTheme from '../../ThemeContext/withTheme';
 
 const RadioLabel = styled('label')({
-  marginLeft: 8,
   color: ultraDarkGrey
 }, ({ disabled, theme }) => ({
+  marginLeft: theme.fontSize / 2,
   fontFamily: theme.fontFamily,
   fontSize: theme.fontSize,
   opacity: disabled ? .5 : 1,
