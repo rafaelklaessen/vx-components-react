@@ -1,6 +1,6 @@
 const path = require('path');
 
-const componentPath = component => `src/components/${component}/*.js`;
+const componentPath = component => `src/components/${component}/index.js`;
 
 const componentSection = component => ({
   name: component,
@@ -45,6 +45,7 @@ module.exports = {
     componentSection('Checkbox'),
     componentSection('Radio'),
     componentSection('Card'),
+    componentSection('Gradients'),
     componentSection('Link'),
     componentSection('Code'),
     componentSection('BlockQuote'),

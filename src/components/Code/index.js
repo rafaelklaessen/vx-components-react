@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import styled from 'react-emotion';
 import { black, lightGrey } from '../../colors';
 
@@ -9,6 +10,19 @@ const Code = styled('code')({
   fontSize: 14,
   fontFamily: '"Menlo", monospace',
   fontWeight: 700
+}, ({ noBg }) => {
+  if (noBg) return {
+    color: 'inherit',
+    background: 'none'
+  };
 });
+
+Code.propTypes = {
+  noBg: PropTypes.bool
+};
+
+Code.defaultProps = {
+  noBg: false
+};
 
 export default Code;
