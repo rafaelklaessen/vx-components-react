@@ -52,6 +52,7 @@ module.exports = {
     componentSection('Link'),
     componentSection('Code'),
     componentSection('BlockQuote'),
+    componentSection('Tabs'),
     componentSection('BigTitle'),
     componentSection('EnormousTitle'),
     componentSection('Space'),
