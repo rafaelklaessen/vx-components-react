@@ -1,56 +1,27 @@
-import generateGradient from './generateGradient';
+import React from 'react';
+import LinearGradient from '../LinearGradient';
 
 const Gradients = {
-  DarkgreenGreen: generateGradient(
-    'DarkgreenGreen',
-    '#184E86',
-    '#57CA85'
-  ),
-  LightgreenGreen: generateGradient(
-    'LightgreenGreen',
-    '#42E695',
-    '#3BB2B8'
-  ),
-  OrangeRed: generateGradient(
-    'OrangeRed',
-    '#FCE38A',
-    '#F38181'
-  ),
-  PinkBlue: generateGradient(
-    'PinkBlue',
-    '#F02FC2',
-    '#6094EA'
-  ),
-  PinkRed: generateGradient(
-    'PinkRed',
-    '#F54EA2',
-    '#FF7676'
-  ),
-  PurpleOrange: generateGradient(
-    'PurpleOrange',
-    '#7117EA',
-    '#EA6060'
-  ),
-  PurpleRed: generateGradient(
-    'PurpleRed',
-    '#622774',
-    '#C53364'
-  ),
-  PurpleTeal: generateGradient(
-    'PurpleTeal',
-    '#5B247A',
-    '#1BCEDF'
-  ),
-  SteelPurple: generateGradient(
-    'SteelPurple',
-    '#65799B',
-    '#5E2563'
-  ),
-  TealBlue: generateGradient(
-    'TealBlue',
-    '#17EAD9',
-    '#6078EA'
-  )
+  DarkgreenGreen: props =>
+    <LinearGradient from="#184E86" to="#57CA85" {...props} />,
+  LightgreenGreen: props =>
+    <LinearGradient from="#42E695" to="#3BB2B8" {...props} />,
+  OrangeRed: props =>
+    <LinearGradient from="#FCE38A" to="#F38181" {...props} />,
+  PinkBlue: props =>
+    <LinearGradient from="#F02FC2" to="#6094EA" {...props} />,
+  PinkRed: props =>
+    <LinearGradient from="#F54EA2" to="#FF7676" {...props} />,
+  PurpleOrange: props =>
+    <LinearGradient from="#7117EA" to="#EA6060" {...props} />,
+  PurpleRed: props =>
+    <LinearGradient from="#622774" to="#C53364" {...props} />,
+  PurpleTeal: props =>
+    <LinearGradient from="#5B247A" to="#1BCEDF" {...props} />,
+  SteelPurple: props =>
+    <LinearGradient from="#65799B" to="#5E2563" {...props} />,
+  TealBlue: props =>
+    <LinearGradient from="#17EAD9" to="#6078EA" {...props} />
 };
 
 export default Gradients;

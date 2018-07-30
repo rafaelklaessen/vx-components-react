@@ -1,29 +1,26 @@
+import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'react-emotion';
-import { white } from '../../colors';
-import GradientCardTitle from './CGradientardTitle';
+import StyledGradientCard from './StyledGradientCard';
+import GradientCardTitle from './GradientCardTitle';
 import GradientCardContent from './GradientCardContent';
-import withTheme from '../ThemeContext/withTheme';
 
-// TODO: implement title & content, implement gradient prop, expose
-// generateGradient function
-const Card = styled('article')({
-  padding: 12,
-  color: white,
-  backgroundColor: cardGrey,
-  borderRadius: 14
-}, ({ theme }) => ({
-  fontFamily: theme.fontFamily,
-  fontSize: theme.fontSize
-}));
+const GradientCard = ({ gradient, children, ...props }) => (
+  <StyledGradientCard {...props}>
+    {gradient}
+    {children}
+  </StyledGradientCard>
+);
 
-Card.propTypes = {
-  theme: PropTypes.object.isRequired
+GradientCard.propTypes = {
+  gradient: PropTypes.node.isRequired,
+  centerContent: PropTypes.bool
 };
 
-const ThemedCard = withTheme(Card);
+GradientCard.defaultProps = {
+  centerContent: false
+};
 
-ThemedCard.Title = GradientCardTitle;
-ThemedCard.Content = GradientCardContent;
+GradientCard.Title = GradientCardTitle;
+GradientCard.Content = GradientCardContent;
 
-export default ThemedCard;
+export default GradientCard;

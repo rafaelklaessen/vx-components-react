@@ -1,19 +1,22 @@
 import PropTypes from 'prop-types';
 import styled from 'react-emotion';
+import { white } from '../../../colors';
 import withTheme from '../../ThemeContext/withTheme';
 
-const CardTitle = styled('h3')({
+const GradientCardTitle = styled('h3')({
+  position: 'relative',
   marginTop: 0,
   marginBottom: 12,
-  fontWeight: 400
+  color: white,
+  fontWeight: 400,
+  zIndex: 1
 }, ({ theme }) => ({
-  color: theme.primaryColor,
   fontFamily: theme.fontFamily,
   fontSize: theme.fontSize * 1.1
 }));
 
-CardTitle.propTypes = {
+GradientCardTitle.propTypes = {
   theme: PropTypes.object.isRequired
 };
 
-export default withTheme(CardTitle);
+export default withTheme(GradientCardTitle);

@@ -12,6 +12,7 @@ const Code = styled('code')({
   fontWeight: 700
 }, ({ noBg }) => {
   if (noBg) return {
+    lineHeight: 'inherit',
     color: 'inherit',
     background: 'none'
   };
