@@ -41,6 +41,7 @@ module.exports = {
       content: 'docs/introduction.md'
     },
     componentSection('Button'),
+    componentSection('LinkButton'),
     componentSection('TextInput'),
     componentSection('Checkbox'),
     componentSection('Radio'),

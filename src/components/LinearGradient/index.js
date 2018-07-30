@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'react-emotion';
 
-// Prevent passing on the `from` and `to` prop
-const CustomDiv = ({ from, to, ...props }) => <div {...props} />
+// Prevent passing on the `from`, `to` and `vertical` prop
+const CustomDiv = ({ from, to, vertical, ...props }) => <div {...props} />
 
 const LinearGradient = styled(CustomDiv)({
   position: 'absolute',
