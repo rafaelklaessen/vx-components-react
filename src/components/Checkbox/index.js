@@ -43,9 +43,11 @@ export default class Checkbox extends Component {
           type="checkbox"
           {...props}
         />
-        <CheckboxLabel htmlFor={id || this.random} disabled={disabled}>
-          {label}
-        </CheckboxLabel>
+        {label &&
+          <CheckboxLabel htmlFor={id || this.random} disabled={disabled}>
+            {label}
+          </CheckboxLabel>
+        }
       </Wrapper>
     );
   };

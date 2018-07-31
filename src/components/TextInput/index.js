@@ -12,6 +12,8 @@ export default class TextInput extends Component {
     type: PropTypes.string,
     wrapper: PropTypes.func,
     wrapperProps: PropTypes.object,
+    labelProps: PropTypes.object,
+    errorTextProps: PropTypes.object,
     fullWidth: PropTypes.bool,
     disabled: PropTypes.bool,
     multiLine: PropTypes.bool
@@ -21,6 +23,8 @@ export default class TextInput extends Component {
     type: 'text',
     wrapper: null,
     wrapperProps: null,
+    labelProps: null,
+    errorTextProps: null,
     fullWidth: false,
     disabled: false,
     multiLine: false
@@ -36,6 +40,8 @@ export default class TextInput extends Component {
       type,
       wrapper,
       wrapperProps,
+      labelProps,
+      errorTextProps,
       disabled,
       multiLine,
       ...props
@@ -45,9 +51,15 @@ export default class TextInput extends Component {
 
     return (
       <Wrapper {...wrapperProps}>
-        <InputLabel htmlFor={id || this.random} disabled={disabled}>
-          {label}
-        </InputLabel>
+        {label &&
+          <InputLabel
+            htmlFor={id || this.random}
+            disabled={disabled}
+            {...labelProps}
+          >
+            {label}
+          </InputLabel>
+        }
         <StyledInput
           id={id || this.random}
           hasError={!!errorText}
@@ -57,7 +69,9 @@ export default class TextInput extends Component {
           {...props}
         />
         {errorText &&
-          <ErrorText>{errorText}</ErrorText>
+          <ErrorText {...errorTextProps}>
+            {errorText}
+          </ErrorText>
         }
       </Wrapper>
     );

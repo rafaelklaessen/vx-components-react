@@ -4,7 +4,7 @@ import { darkGrey } from '../../../colors';
 import { transition } from '../../../styles';
 import withTheme from '../../ThemeContext/withTheme';
 
-const ToggleWrapper = styled('div')({
+const SwitchWrapper = styled('div')({
   position: 'relative',
   width: 35,
   height: 20,
@@ -34,15 +34,15 @@ const ToggleWrapper = styled('div')({
   return styles;
 });
 
-ToggleWrapper.propTypes = {
+SwitchWrapper.propTypes = {
   checked: PropTypes.bool,
   disabled: PropTypes.bool,
   theme: PropTypes.object.isRequired
 };
 
-ToggleWrapper.defaultProps = {
+SwitchWrapper.defaultProps = {
   checked: false,
   disabled: false
 };
 
-export default withTheme(ToggleWrapper);
+export default withTheme(SwitchWrapper);

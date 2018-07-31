@@ -41,9 +41,11 @@ export default class Radio extends Component {
           type="radio"
           {...props}
         />
-        <RadioLabel htmlFor={id || this.random} disabled={disabled}>
-          {label}
-        </RadioLabel>
+        {label &&
+          <RadioLabel htmlFor={id || this.random} disabled={disabled}>
+            {label}
+          </RadioLabel>
+        }
       </Wrapper>
     );
   };

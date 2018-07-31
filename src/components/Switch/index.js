@@ -1,18 +1,20 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import ToggleWrapper from './ToggleWrapper';
-import ToggleDot from './ToggleDot';
+import SwitchWrapper from './SwitchWrapper';
+import SwitchDot from './SwitchDot';
 
-export default class Toggle extends Component {
+export default class Switch extends Component {
   static propTypes = {
     defaultChecked: PropTypes.bool,
     checked: PropTypes.bool,
     onChange: PropTypes.func,
+    dotProps: PropTypes.object,
     disabled: PropTypes.bool
   };
 
   static defaultProps = {
     defaultChecked: false,
+    dotProps: null,
     disabled: false
   };
 
@@ -40,18 +42,19 @@ export default class Toggle extends Component {
       defaultChecked,
       checked: checkedProp,
       onChange,
+      dotProps,
       ...props
     } = this.props;
 
     const checked = this.isChecked();
     return (
-      <ToggleWrapper
+      <SwitchWrapper
         checked={checked}
         onClick={this.handleClick}
         {...props}
       >
-        <ToggleDot checked={checked} />
-      </ToggleWrapper>
+        <SwitchDot checked={checked} {...dotProps} />
+      </SwitchWrapper>
     );
   };
 }

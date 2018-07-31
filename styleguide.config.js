@@ -45,7 +45,7 @@ module.exports = {
     componentSection('TextInput'),
     componentSection('Checkbox'),
     componentSection('Radio'),
-    componentSection('Toggle'),
+    componentSection('Switch'),
     componentSection('Card'),
     componentSection('GradientCard'),
     componentSection('Gradients'),

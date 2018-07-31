@@ -3,7 +3,7 @@ import styled from 'react-emotion';
 import { white, darkGrey } from '../../../colors';
 import { transition } from '../../../styles';
 
-const ToggleDot = styled('span')({
+const SwitchDot = styled('span')({
   position: 'absolute',
   top: 2,
   width: 12,
@@ -15,12 +15,12 @@ const ToggleDot = styled('span')({
   backgroundColor: checked ? white : darkGrey
 }));
 
-ToggleDot.propTypes = {
+SwitchDot.propTypes = {
   checked: PropTypes.bool
 };
 
-ToggleDot.defaultProps = {
+SwitchDot.defaultProps = {
   checked: false
 };
 
-export default ToggleDot;
+export default SwitchDot;

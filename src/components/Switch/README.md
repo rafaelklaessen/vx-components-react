@@ -1,17 +1,17 @@
 ```js
-<Toggle />
+<Switch />
 ```
 
 With `defaultChecked`:
 ```js
-<Toggle defaultChecked />
+<Switch defaultChecked />
 ```
 
 Controlled example:
 ```js
 initialState = { checked: true };
 
-<Toggle
+<Switch
   checked={state.checked}
   onChange={checked => setState({ checked })}
 />
@@ -19,10 +19,10 @@ initialState = { checked: true };
 
 Disabled:
 ```js
-<Toggle disabled />
+<Switch disabled />
 ```
 
 Disabled & checked:
 ```js
-<Toggle defaultChecked disabled />
+<Switch defaultChecked disabled />
 ```
