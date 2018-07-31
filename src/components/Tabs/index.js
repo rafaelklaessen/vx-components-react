@@ -6,31 +6,49 @@ import Tab from '../Tab';
 
 export const TabContext = React.createContext();
 
-// TODO: Controlled version
 export default class Tabs extends Component {
+  static propTypes = {
+    value: PropTypes.any,
+    onChange: PropTypes.func,
+    imperfect: PropTypes.bool,
+    children: PropTypes.node.isRequired
+  };
+
+  static defaultProps = {
+    imperfect: false
+  };
+
   state = {
     value: 0
   };
 
-  static propTypes = {
-    children: PropTypes.node.isRequired
+  handleLabelClick = tabKey => () => {
+    const onChange = this.props.onChange;
+    if (onChange) return onChange(tabKey);
+    this.setState({ value: tabKey });
   };
 
-  handleLabelClick = tabKey => () => this.setState({ value: tabKey });
-
   render = () => {
-    const value = this.state.value;
+    const {
+      value: valueProp,
+      onChange,
+      imperfect,
+      children: originalChildren,
+      ...props
+    } = this.props;
 
-    const children = Children.map(this.props.children, (child, i) =>
+    const value = valueProp || this.state.value;
+
+    const children = Children.map(originalChildren, (child, i) =>
       React.cloneElement(child, {
-        tabKey: child.type === Tab ? i : undefined
+        tabKey: child.type === Tab ? child.props.tabKey || i : undefined
       })
     );
 
     return (
       <TabContext.Provider value={value}>
-        <section>
-          <Labels>
+        <section {...props}>
+          <Labels imperfect={imperfect}>
             {Children.map(children, child =>
               child.type === Tab ? (
                 <Label
