@@ -9,3 +9,5 @@ Props that aren't documented or that aren't used in the examples will be passed 
 ```
 
 Even though the `onFocus` and `style` props are not documented on `Button`.
+
+This makes the components so flexible.

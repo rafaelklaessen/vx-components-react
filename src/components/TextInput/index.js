@@ -20,7 +20,7 @@ export default class TextInput extends Component {
   static defaultProps = {
     type: 'text',
     wrapper: null,
-    wrapperProps: {},
+    wrapperProps: null,
     fullWidth: false,
     disabled: false,
     multiLine: false

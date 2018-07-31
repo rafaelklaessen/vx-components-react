@@ -16,7 +16,7 @@ export default class Checkbox extends Component {
 
   static defaultProps = {
     wrapper: null,
-    wrapperProps: {},
+    wrapperProps: null,
     disabled: false,
     indeterminate: false
   };

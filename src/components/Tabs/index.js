@@ -2,7 +2,6 @@ import React, { Component, Children } from 'react';
 import PropTypes from 'prop-types';
 import Labels from './Labels';
 import Label from './Label';
-import Tab from '../Tab';
 
 export const TabContext = React.createContext();
 
@@ -10,6 +9,10 @@ export default class Tabs extends Component {
   static propTypes = {
     value: PropTypes.any,
     onChange: PropTypes.func,
+    labelWrapper: PropTypes.func,
+    labelWrapperProps: PropTypes.object,
+    labelComponent: PropTypes.func,
+    labelProps: PropTypes.object,
     imperfect: PropTypes.bool,
     children: PropTypes.node.isRequired
   };
@@ -33,6 +36,10 @@ export default class Tabs extends Component {
       value: valueProp,
       onChange,
       imperfect,
+      labelWrapper,
+      labelWrapperProps,
+      labelComponent,
+      labelProps,
       children: originalChildren,
       ...props
     } = this.props;
@@ -41,25 +48,27 @@ export default class Tabs extends Component {
 
     const children = Children.map(originalChildren, (child, i) =>
       React.cloneElement(child, {
-        tabKey: child.type === Tab ? child.props.tabKey || i : undefined
+        tabKey: child.props.tabKey || i
       })
     );
+
+    const LabelWrapper = labelWrapper || Labels;
+    const LabelComponent = labelComponent || Label;
 
     return (
       <TabContext.Provider value={value}>
         <section {...props}>
-          <Labels imperfect={imperfect}>
+          <LabelWrapper imperfect={imperfect} {...labelWrapperProps}>
             {Children.map(children, child =>
-              child.type === Tab ? (
-                <Label
-                  active={child.props.tabKey === value}
-                  onClick={this.handleLabelClick(child.props.tabKey)}
-                >
-                  {child.props.label}
-                </Label>
-              ) : null
+              <LabelComponent
+                active={child.props.tabKey === value}
+                onClick={this.handleLabelClick(child.props.tabKey)}
+                {...labelProps}
+              >
+                {child.props.label}
+              </LabelComponent>
             )}
-          </Labels>
+          </LabelWrapper>
           <div>
             {children}
           </div>
