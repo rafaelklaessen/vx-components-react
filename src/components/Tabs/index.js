@@ -7,6 +7,7 @@ export const TabContext = React.createContext();
 
 export default class Tabs extends Component {
   static propTypes = {
+    defaultValue: PropTypes.any,
     value: PropTypes.any,
     onChange: PropTypes.func,
     labelWrapper: PropTypes.func,
@@ -22,7 +23,7 @@ export default class Tabs extends Component {
   };
 
   state = {
-    value: 0
+    value: this.props.defaultValue || 0
   };
 
   handleLabelClick = tabKey => () => {
