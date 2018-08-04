@@ -21,6 +21,9 @@
     "docs:static": "styleguidist build"
   },
   "dependencies": {
+    "d3": "^5.5.0",
+    "d3-shape": "^1.2.0",
+    "detroit-loading-spinner": "^1.0.0",
     "prop-types": "^15.6.2",
     "react-display-name": "^0.2.4"
   },

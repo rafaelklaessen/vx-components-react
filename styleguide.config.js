@@ -51,6 +51,8 @@ module.exports = {
     componentSection('Gradients'),
     componentSection('LinearGradient'),
     componentSection('Link'),
+    componentSection('LoadingSpinner'),
+    componentSection('SimpleLoadingSpinner'),
     componentSection('Code'),
     componentSection('BlockQuote'),
     componentSection('Tabs'),
