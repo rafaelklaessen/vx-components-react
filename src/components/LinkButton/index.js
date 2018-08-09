@@ -4,6 +4,7 @@ import Link from '../Link';
 
 const StyledButton = styled('button')({
   padding: 0,
+  background: 'none',
   font: 'inherit',
   border: 0,
   appearance: 'none',
