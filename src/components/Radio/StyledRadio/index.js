@@ -5,6 +5,7 @@ import { transition } from '../../../styles';
 import withTheme from '../../ThemeContext/withTheme';
 
 const StyledRadio = styled('input')({
+  order: 1,
   margin: 0,
   backgroundColor: white,
   borderRadius: '50%',

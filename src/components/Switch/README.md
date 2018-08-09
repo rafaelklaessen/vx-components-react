@@ -1,4 +1,9 @@
 ```js
+<Switch />
+```
+
+With a label:
+```js
 <Switch>
   <Label>Enable Wi-Fi</Label>
 </Switch>
@@ -34,6 +39,13 @@ initialState = { checked: true };
   onChange={checked => setState({ checked })}
 >
   <Label>Enable Wi-Fi</Label>
+</Switch>
+```
+
+With the label on the left:
+```js
+<Switch>
+  <Label left>Enable Wi-Fi</Label>
 </Switch>
 ```
 

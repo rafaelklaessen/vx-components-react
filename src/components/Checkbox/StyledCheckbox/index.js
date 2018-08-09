@@ -7,6 +7,7 @@ import { checkIcon, indeterminateIcon } from './icons';
 import withTheme from '../../ThemeContext/withTheme';
 
 const StyledCheckbox = styled('input')({
+  order: 1,
   margin: 0,
   backgroundPosition: 'center',
   backgroundColor: lightGrey,

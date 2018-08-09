@@ -10,7 +10,7 @@ export default class Switch extends Component {
     defaultChecked: PropTypes.bool,
     checked: PropTypes.bool,
     disabled: PropTypes.bool,
-    switchProps: null,
+    switchProps: PropTypes.object,
     dotProps: PropTypes.object,
     onChange: PropTypes.func,
     children: PropTypes.node

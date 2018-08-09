@@ -6,6 +6,7 @@ import withTheme from '../../ThemeContext/withTheme';
 
 const SwitchWrapper = styled('div')({
   position: 'relative',
+  order: 1,
   width: 35,
   height: 20,
   border: `2px solid ${darkGrey}`,

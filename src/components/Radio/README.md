@@ -1,9 +1,12 @@
 ```js
-<form>
-  <Radio>
-    <Label>Foo</Label>
-  </Radio>
-</form>
+<Radio />
+```
+
+With a label:
+```js
+<Radio>
+  <Label>Foo</Label>
+</Radio>
 ```
 
 ```js
@@ -28,50 +31,47 @@
 
 With `defaultChecked`:
 ```js
-<form>
-  <Radio defaultChecked>
-    <Label>Foo</Label>
-  </Radio>
-</form>
+<Radio defaultChecked>
+  <Label>Foo</Label>
+</Radio>
 ```
 
 Disabled:
 ```js
-<form>
-  <Radio disabled>
-    <Label>Foo</Label>
-  </Radio>
-</form>
+<Radio disabled>
+  <Label>Foo</Label>
+</Radio>
 ```
 
 Disabled & checked:
 ```js
-<form>
-  <Radio defaultChecked disabled>
-    <Label>Foo</Label>
-  </Radio>
-</form>
+<Radio defaultChecked disabled>
+  <Label>Foo</Label>
+</Radio>
 ```
 
 Controlled example:
 ```js
 initialState = { checked: false };
 
-<form>
-  <Radio
-    checked={state.checked}
-    onChange={e => setState({ checked: e.target.checked })}
-  >
-    <Label>Foo</Label>
-  </Radio>
-</form>
+<Radio
+  checked={state.checked}
+  onChange={e => setState({ checked: e.target.checked })}
+>
+  <Label>Foo</Label>
+</Radio>
+```
+
+With the label on the left:
+```js
+<Radio>
+  <Label left>Option</Label>
+</Radio>
 ```
 
 You can customise the input through `inputProps`:
 ```js
-<form>
-  <Radio inputProps={{ style: { backgroundColor: 'green' } }}>
-    <Label>Option</Label>
-  </Radio>
-</form>
+<Radio inputProps={{ style: { backgroundColor: 'green' } }}>
+  <Label>Option</Label>
+</Radio>
 ```

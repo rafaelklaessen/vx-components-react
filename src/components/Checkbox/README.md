@@ -1,4 +1,9 @@
 ```js
+<Checkbox />
+```
+
+With a label:
+```js
 <Checkbox>
   <Label>Enable Wi-Fi</Label>
 </Checkbox>
@@ -41,6 +46,13 @@ initialState = { checked: false };
   onChange={e => setState({ checked: e.target.checked })}
 >
   <Label>Controlled checkbox</Label>
+</Checkbox>
+```
+
+With the label on the left:
+```js
+<Checkbox>
+  <Label left>Enable Wi-Fi</Label>
 </Checkbox>
 ```
 
