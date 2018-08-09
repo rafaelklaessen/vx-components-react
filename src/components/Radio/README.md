@@ -1,25 +1,55 @@
 ```js
 <form>
-  <Radio label="Foo" />
+  <Radio>
+    <Label>Foo</Label>
+  </Radio>
 </form>
 ```
 
 ```js
 <form>
-  <Radio label="Option 1" name="options" />
+  <Radio name="options">
+    <Label>Option 1</Label>
+  </Radio>
   <Space height={8} />
-  <Radio label="Option 2" name="options" />
+  <Radio name="options">
+    <Label>Option 2</Label>
+  </Radio>
   <Space height={8} />
-  <Radio label="Option 3" name="options" />
+  <Radio name="options">
+    <Label>Option 3</Label>
+  </Radio>
   <Space height={8} />
-  <Radio label="Option 4" name="options" disabled />
+  <Radio name="options" disabled>
+    <Label>Option 4</Label>
+  </Radio>
+</form>
+```
+
+With `defaultChecked`:
+```js
+<form>
+  <Radio defaultChecked>
+    <Label>Foo</Label>
+  </Radio>
+</form>
+```
+
+Disabled:
+```js
+<form>
+  <Radio disabled>
+    <Label>Foo</Label>
+  </Radio>
 </form>
 ```
 
 Disabled & checked:
 ```js
 <form>
-  <Radio label="Foo" disabled checked />
+  <Radio defaultChecked disabled>
+    <Label>Foo</Label>
+  </Radio>
 </form>
 ```
 
@@ -29,38 +59,19 @@ initialState = { checked: false };
 
 <form>
   <Radio
-    label="Foo"
     checked={state.checked}
     onChange={e => setState({ checked: e.target.checked })}
-  />
+  >
+    <Label>Foo</Label>
+  </Radio>
 </form>
 ```
 
-You can customize the wrapper through `wrapperProps` or through `wrapper`:
+You can customise the input through `inputProps`:
 ```js
 <form>
-  <Radio
-    label="Option"
-    wrapperProps={{ style: { backgroundColor: 'green' } }}
-  />
-</form>
-```
-
-Note that `wrapperProps` will be passed on to the custom wrapper too.
-```js
-const styled = require('react-emotion').default;
-
-const CustomWrapper = styled('div')({
-  backgroundColor: 'purple'
-}, ({ space }) => ({
-  margin: space
-}));
-
-<form>
-  <Radio
-    label="Option"
-    wrapper={CustomWrapper}
-    wrapperProps={{ space: 56 }}
-  />
+  <Radio inputProps={{ style: { backgroundColor: 'green' } }}>
+    <Label>Option</Label>
+  </Radio>
 </form>
 ```

@@ -1,21 +1,35 @@
 ```js
-<Checkbox label="Enable Wi-Fi" />
+<Checkbox>
+  <Label>Enable Wi-Fi</Label>
+</Checkbox>
+```
+
+With `defaultChecked`:
+```js
+<Checkbox defaultChecked>
+  <Label>Enable Wi-Fi</Label>
+</Checkbox>
 ```
 
 Disabled:
 ```js
-<Checkbox
-  label="Enable 4G"
-  disabled
-/>
+<Checkbox disabled>
+  <Label>Enable 4G</Label>
+</Checkbox>
+```
+
+Disabled & checked:
+```js
+<Checkbox defaultChecked disabled>
+  <Label>Enable 4G</Label>
+</Checkbox>
 ```
 
 Indeterminate:
 ```js
-<Checkbox
-  label="Indeterminate"
-  indeterminate
-/>
+<Checkbox indeterminate>
+  <Label>Indeterminate</Label>
+</Checkbox>
 ```
 
 Controlled example:
@@ -23,33 +37,16 @@ Controlled example:
 initialState = { checked: false };
 
 <Checkbox
-  label="Controlled checkbox"
   checked={state.checked}
   onChange={e => setState({ checked: e.target.checked })}
-/>
+>
+  <Label>Controlled checkbox</Label>
+</Checkbox>
 ```
 
-You can customize the wrapper through `wrapperProps` or through `wrapper`:
+You can customise the input through `inputProps`:
 ```js
-<Checkbox
-  label="Enable Wi-Fi"
-  wrapperProps={{ style: { backgroundColor: 'green' } }}
-/>
-```
-
-Note that `wrapperProps` will be passed on to the custom wrapper too.
-```js
-const styled = require('react-emotion').default;
-
-const CustomWrapper = styled('div')({
-  backgroundColor: 'purple'
-}, ({ space }) => ({
-  margin: space
-}));
-
-<Checkbox
-  label="Enable Wi-Fi"
-  wrapper={CustomWrapper}
-  wrapperProps={{ space: 56 }}
-/>
+<Checkbox inputProps={{ style: { backgroundColor: 'green' } }}>
+  <Label>Enable Wi-Fi</Label>
+</Checkbox>
 ```

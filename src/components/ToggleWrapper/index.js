@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 import styled from 'react-emotion';
-import withTheme from '../../ThemeContext/withTheme';
+import withTheme from '../ThemeContext/withTheme';
 
-const RadioWrapper = styled('div')({
+const ToggleWrapper = styled('div')({
   display: 'flex',
   alignItems: 'center'
 }, ({ theme }) => ({
@@ -10,8 +10,8 @@ const RadioWrapper = styled('div')({
   fontSize: theme.fontSize
 }));
 
-RadioWrapper.propTypes = {
+ToggleWrapper.propTypes = {
   theme: PropTypes.object.isRequired
 };
 
-export default withTheme(RadioWrapper);
+export default withTheme(ToggleWrapper);

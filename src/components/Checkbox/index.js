@@ -1,54 +1,70 @@
-import React, { Component } from 'react';
+import React, { Component, Children } from 'react';
 import PropTypes from 'prop-types';
-import CheckboxWrapper from './CheckboxWrapper';
+import ToggleWrapper from '../ToggleWrapper';
 import StyledCheckbox from './StyledCheckbox';
-import CheckboxLabel from './CheckboxLabel';
 
 export default class Checkbox extends Component {
   static propTypes = {
     id: PropTypes.string,
-    label: PropTypes.node,
-    wrapper: PropTypes.func,
-    wrapperProps: PropTypes.object,
+    name: PropTypes.string,
+    defaultChecked: PropTypes.bool,
+    checked: PropTypes.bool,
+    value: PropTypes.any,
     disabled: PropTypes.bool,
-    indeterminate: PropTypes.bool
+    indeterminate: PropTypes.bool,
+    inputProps: PropTypes.object,
+    onChange: PropTypes.func,
+    children: PropTypes.node
   };
 
   static defaultProps = {
-    wrapper: null,
-    wrapperProps: null,
+    defaultChecked: false,
     disabled: false,
-    indeterminate: false
+    indeterminate: false,
+    inputProps: null
   };
 
   random = Math.random().toString();
 
+  getLabel = () =>
+    Children.map(this.props.children, child =>
+      React.cloneElement(child, {
+        htmlFor: this.props.id || this.random,
+        disabled: this.props.disabled
+      })
+    );
+
   render = () => {
     const {
       id,
-      label,
-      wrapper,
-      wrapperProps,
+      name,
+      defaultChecked,
+      checked,
+      value,
       disabled,
+      indeterminate,
+      inputProps,
+      onChange,
+      children,
       ...props
     } = this.props;
 
-    const Wrapper = wrapper || CheckboxWrapper;
-
     return (
-      <Wrapper {...wrapperProps}>
+      <ToggleWrapper {...props}>
         <StyledCheckbox
           id={id || this.random}
-          disabled={disabled}
+          name={name}
           type="checkbox"
-          {...props}
+          defaultChecked={defaultChecked}
+          checked={checked}
+          value={value}
+          onChange={onChange}
+          disabled={disabled}
+          indeterminate={indeterminate}
+          {...inputProps}
         />
-        {label &&
-          <CheckboxLabel htmlFor={id || this.random} disabled={disabled}>
-            {label}
-          </CheckboxLabel>
-        }
-      </Wrapper>
+        {this.getLabel()}
+      </ToggleWrapper>
     );
   };
 }

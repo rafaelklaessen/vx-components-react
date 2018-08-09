@@ -1,10 +1,28 @@
 ```js
-<Switch />
+<Switch>
+  <Label>Enable Wi-Fi</Label>
+</Switch>
 ```
 
 With `defaultChecked`:
 ```js
-<Switch defaultChecked />
+<Switch defaultChecked>
+  <Label>Enable Wi-Fi</Label>
+</Switch>
+```
+
+Disabled:
+```js
+<Switch disabled>
+  <Label>Enable Wi-Fi</Label>
+</Switch>
+```
+
+Disabled & checked:
+```js
+<Switch defaultChecked disabled>
+  <Label>Enable Wi-Fi</Label>
+</Switch>
 ```
 
 Controlled example:
@@ -14,15 +32,17 @@ initialState = { checked: true };
 <Switch
   checked={state.checked}
   onChange={checked => setState({ checked })}
-/>
+>
+  <Label>Enable Wi-Fi</Label>
+</Switch>
 ```
 
-Disabled:
+You can customise the switch through `switchProps` and `dotProps`:
 ```js
-<Switch disabled />
-```
-
-Disabled & checked:
-```js
-<Switch defaultChecked disabled />
+<Switch
+  switchProps={{ style: { backgroundColor: 'green' } }}
+  dotProps={{ style: { backgroundColor: 'purple' } }}
+>
+  <Label>Enable Wi-Fi</Label>
+</Switch>
 ```

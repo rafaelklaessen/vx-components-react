@@ -1,10 +1,12 @@
 import PropTypes from 'prop-types';
 import styled from 'react-emotion';
-import { ultraDarkGrey } from '../../../colors';
-import withTheme from '../../ThemeContext/withTheme';
+import { ultraDarkGrey } from '../../colors';
+import { transition } from '../../styles';
+import withTheme from '../ThemeContext/withTheme';
 
-const RadioLabel = styled('label')({
-  color: ultraDarkGrey
+const Label = styled('label')({
+  color: ultraDarkGrey,
+  transition
 }, ({ disabled, theme }) => ({
   marginLeft: theme.fontSize / 2,
   fontFamily: theme.fontFamily,
@@ -13,13 +15,13 @@ const RadioLabel = styled('label')({
   cursor: disabled ? 'not-allowed' : 'pointer'
 }));
 
-RadioLabel.propTypes = {
+Label.propTypes = {
   disabled: PropTypes.bool,
   theme: PropTypes.object.isRequired
 };
 
-RadioLabel.defaultProps = {
+Label.defaultProps = {
   disabled: false
 };
 
-export default withTheme(RadioLabel);
+export default withTheme(Label);

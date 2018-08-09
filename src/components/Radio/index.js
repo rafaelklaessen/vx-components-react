@@ -1,52 +1,66 @@
-import React, { Component } from 'react';
+import React, { Component, Children } from 'react';
 import PropTypes from 'prop-types';
-import RadioWrapper from './RadioWrapper';
+import ToggleWrapper from '../ToggleWrapper';
 import StyledRadio from './StyledRadio';
-import RadioLabel from './RadioLabel';
 
 export default class Radio extends Component {
   static propTypes = {
     id: PropTypes.string,
-    label: PropTypes.node,
-    wrapper: PropTypes.func,
-    wrapperProps: PropTypes.object,
-    disabled: PropTypes.bool
+    name: PropTypes.string,
+    defaultChecked: PropTypes.bool,
+    checked: PropTypes.bool,
+    value: PropTypes.any,
+    disabled: PropTypes.bool,
+    inputProps: PropTypes.object,
+    onChange: PropTypes.func,
+    children: PropTypes.node
   };
 
   static defaultProps = {
-    wrapper: null,
-    wrapperProps: null,
-    disabled: false
+    defaultChecked: false,
+    disabled: false,
+    inputProps: null
   };
 
   random = Math.random().toString();
 
+  getLabel = () =>
+    Children.map(this.props.children, child =>
+      React.cloneElement(child, {
+        htmlFor: this.props.id || this.random,
+        disabled: this.props.disabled
+      })
+    );
+
   render = () => {
     const {
       id,
-      label,
-      wrapper,
-      wrapperProps,
+      name,
+      defaultChecked,
+      checked,
+      value,
       disabled,
+      inputProps,
+      onChange,
+      children,
       ...props
     } = this.props;
 
-    const Wrapper = wrapper || RadioWrapper;
-
     return (
-      <Wrapper {...wrapperProps}>
+      <ToggleWrapper {...props}>
         <StyledRadio
           id={id || this.random}
-          disabled={disabled}
+          name={name}
           type="radio"
-          {...props}
+          defaultChecked={defaultChecked}
+          checked={checked}
+          value={value}
+          onChange={onChange}
+          disabled={disabled}
+          {...inputProps}
         />
-        {label &&
-          <RadioLabel htmlFor={id || this.random} disabled={disabled}>
-            {label}
-          </RadioLabel>
-        }
-      </Wrapper>
+        {this.getLabel()}
+      </ToggleWrapper>
     );
   };
 }
