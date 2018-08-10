@@ -65,4 +65,11 @@
 <Button bold imperfect primary fullWidth>
   Click me
 </Button>
+
+<br />
+<br />
+
+<Button primary rect>
+  Click me
+</Button>
 ```
