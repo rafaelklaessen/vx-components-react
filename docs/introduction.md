@@ -3,11 +3,25 @@
 ### Undocumented props are passed on to the root element
 Props that aren't documented or that aren't used in the examples will be passed on to the root element. For example, it is possible to do this:
 ```js
-<Button onFocus={() => console.log('Focus!')} style={{ color: 'green' }}>
+const styled = require('react-emotion').default;
+
+const StyledButton = styled(Button)({
+  color: '#000000',
+  backgroundColor: '#FFD54F',
+  ':hover': {
+    backgroundColor: '#FFC107',
+    transform: 'none'
+  },
+  ':active': {
+    transform: 'scale(.95)'
+  }
+});
+
+<StyledButton onFocus={() => console.log('Focus!')} rect>
   Click me
-</Button>
+</StyledButton>
 ```
 
-Even though the `onFocus` and `style` props are not documented on `Button`.
+Even though the `onFocus` and `className` (provided by `emotion`) props are not documented on `Button`.
 
 This makes the components so flexible.

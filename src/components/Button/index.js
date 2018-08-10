@@ -41,7 +41,7 @@ const Button = styled('button')({
   styles.push({
     fontFamily: bold ? theme.titleFontFamily : theme.fontFamily,
     fontSize: theme.fontSize,
-    fontWeight: bold ? 800 : 700
+    fontWeight: bold ? 800 : 400
   });
 
   if (bold) styles.push({
