@@ -4,7 +4,7 @@ import styled from 'react-emotion';
 import { black } from '../../../colors';
 import { transition, mediaQuery } from '../../../styles';
 
-const CustomDiv = ({ open, ...props }) => <div {...props} />
+const CustomDiv = ({ open, noAnimation, ...props }) => <div {...props} />;
 
 const DialogOverlay = styled(CustomDiv)({
   position: 'absolute',
@@ -14,20 +14,22 @@ const DialogOverlay = styled(CustomDiv)({
   height: '100%',
   backgroundColor: black,
   zIndex: -1,
-  transition,
   [mediaQuery(560)]: {
     background: 'none'
   }
-}, ({ open }) => ({
-  opacity: open ? .5 : 0
+}, ({ open, noAnimation }) => ({
+  opacity: open ? .5 : 0,
+  transition: noAnimation ? 'none' : transition
 }));
 
 DialogOverlay.propTypes = {
-  open: PropTypes.bool
+  open: PropTypes.bool,
+  noAnimation: PropTypes.bool,
 };
 
 DialogOverlay.defaultProps = {
-  open: false
+  open: false,
+  noAnimation: false
 };
 
 export default DialogOverlay;

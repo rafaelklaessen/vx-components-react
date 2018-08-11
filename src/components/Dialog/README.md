@@ -28,6 +28,52 @@ const closeModal = () => setState({ open: false });
 </div>
 ```
 
+You can choose which animation you want.
+
+The following animations are available:
+- `Animations.SLIDE`
+- `Animations.GROW`
+- `Animations.FADE`
+- `Animations.NONE`
+
+Note that `Animations.SLIDE` and `Animations.GROW` automatically become `Animations.FADE` on mobile devices.
+
+```js
+const Animations = Dialog.Animations;
+
+initialState = { open: false };
+
+const openModal = () => setState({ open: true });
+const closeModal = () => setState({ open: false });
+
+<div>
+  <Button onClick={openModal}>
+    Open dialog
+  </Button>
+
+  <Dialog
+    open={state.open}
+    onRequestClose={closeModal}
+    animation={Animations.GROW}
+  >
+    <Dialog.Label>Confirm deletion</Dialog.Label>
+    <Dialog.Title>Delete this item?</Dialog.Title>
+    <Dialog.Content>
+      Once you delete an item, there&#39;s no way back!
+    </Dialog.Content>
+    <Dialog.Actions>
+      <LinkButton onClick={closeModal}>
+        Cancel
+      </LinkButton>
+      <Space width={24} />
+      <Button onClick={closeModal} primary borderRadius={4}>
+        Delete
+      </Button>
+    </Dialog.Actions>
+  </Dialog>
+</div>
+```
+
 Don't like the default look?
 ```js
 const styled = require('react-emotion').default;

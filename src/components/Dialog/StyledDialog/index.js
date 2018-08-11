@@ -5,13 +5,19 @@ import { white } from '../../../colors';
 import { transition, mediaQuery } from '../../../styles';
 import withTheme from '../../ThemeContext/withTheme';
 
-const CustomArticle = ({ open, ...props }) => <article {...props} />
+const CustomArticle = ({ open, ...props }) => <article {...props} />;
+
+export const Animations = {
+  SLIDE: 'SLIDE',
+  GROW: 'GROW',
+  FADE: 'FADE',
+  NONE: 'NONE'
+};
 
 const StyledDialog = styled(CustomArticle)({
   position: 'absolute',
   top: '50%',
   left: '50%',
-  transform: 'translate(-50%, -50%) scale(0)',
   padding: 32,
   backgroundColor: white,
   boxSizing: 'border-box',
@@ -28,7 +34,7 @@ const StyledDialog = styled(CustomArticle)({
     display: 'flex',
     flexDirection: 'column'
   }
-}, ({ open, width, theme }) => {
+}, ({ open, width, animation, theme }) => {
   const styles = [];
 
   styles.push({
@@ -37,8 +43,29 @@ const StyledDialog = styled(CustomArticle)({
     width
   });
 
+  if (animation === Animations.SLIDE) {
+    styles.push({ transform: 'translate(-50%, calc(-50% + 48px))' });
+    if (open) styles.push({ transform: 'translate(-50%, -50%)' });
+  }
+
+  if (animation === Animations.GROW) {
+    styles.push({ transform: 'translate(-50%, -50%) scale(0)' });
+    if (open) styles.push({ transform: 'translate(-50%, -50%) scale(1)' });
+  }
+
+  if (animation === Animations.FADE) {
+    styles.push({ transform: 'translate(-50%, -50%)', opacity: 0 });
+    if (open) styles.push({ opacity: 1 });
+  }
+
+  if (animation === Animations.NONE) {
+    styles.push({
+      transform: 'translate(-50%, -50%)',
+      transition: 'none'
+    });
+  }
+
   if (open) styles.push({
-    transform: 'translate(-50%, -50%) scale(1)',
     [mediaQuery(560)]: {
       transform: 'none',
       opacity: 1
@@ -51,12 +78,14 @@ const StyledDialog = styled(CustomArticle)({
 StyledDialog.propTypes = {
   open: PropTypes.bool,
   width: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  animation: PropTypes.oneOf(Object.values(Animations)),
   theme: PropTypes.object.isRequired
 };
 
 StyledDialog.defaultProps = {
   open: false,
-  width: 480
+  width: 480,
+  animation: Animations.SLIDE
 };
 
 export default withTheme(StyledDialog);
