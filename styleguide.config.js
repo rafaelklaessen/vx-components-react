@@ -51,6 +51,7 @@ module.exports = {
     componentSection('GradientCard'),
     componentSection('Gradients'),
     componentSection('LinearGradient'),
+    componentSection('Dialog'),
     componentSection('Link'),
     componentSection('LoadingSpinner'),
     componentSection('SimpleLoadingSpinner'),

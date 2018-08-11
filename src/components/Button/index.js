@@ -11,7 +11,6 @@ const Button = styled('button')({
   appearance: 'none',
   outlineWidth: 0,
   border: 0,
-  borderRadius: 30,
   cursor: 'pointer',
   boxSizing: 'border-box',
   transition,
@@ -26,6 +25,7 @@ const Button = styled('button')({
   imperfect,
   primary,
   fullWidth,
+  borderRadius,
   disabled,
   rect,
   theme
@@ -35,13 +35,14 @@ const Button = styled('button')({
   const color = primary ? theme.primaryColor : theme.secondaryColor;
 
   styles.push({
-    backgroundColor: color
-  });
-
-  styles.push({
     fontFamily: bold ? theme.titleFontFamily : theme.fontFamily,
     fontSize: theme.fontSize,
     fontWeight: bold ? 800 : 400
+  });
+
+  styles.push({
+    backgroundColor: color,
+    borderRadius
   });
 
   if (bold) styles.push({
@@ -73,6 +74,7 @@ Button.propTypes = {
   imperfect: PropTypes.bool,
   primary: PropTypes.bool,
   fullWidth: PropTypes.bool,
+  borderRadius: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   disabled: PropTypes.bool,
   rect: PropTypes.bool,
   theme: PropTypes.object.isRequired
@@ -83,8 +85,9 @@ Button.defaultProps = {
   imperfect: false,
   primary: false,
   fullWidth: false,
-  rect: false,
-  disabled: false
+  borderRadius: 30,
+  disabled: false,
+  rect: false
 };
 
 export default withTheme(Button);
