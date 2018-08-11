@@ -21,3 +21,6 @@ export Tab from './components/Tab';
 export Tabs from './components/Tabs';
 export TextInput from './components/TextInput';
 export VxThemeProvider from './components/ThemeContext/VxThemeProvider';
+
+export * as colors from './colors';
+export * as styles from './styles';

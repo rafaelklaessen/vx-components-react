@@ -65,6 +65,10 @@ module.exports = {
     {
       name: 'VxThemeProvider',
       components: componentPath('ThemeContext/VxThemeProvider')
+    },
+    {
+      name: 'Utils',
+      content: 'docs/utils.md'
     }
   ]
 };
