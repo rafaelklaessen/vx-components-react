@@ -1,7 +1,10 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'react-emotion';
 
-const DialogWrapper = styled('section')({
+const CustomSection = ({ open, ...props }) => <section {...props} />
+
+const DialogWrapper = styled(CustomSection)({
   position: 'fixed',
   top: 0,
   left: 0,

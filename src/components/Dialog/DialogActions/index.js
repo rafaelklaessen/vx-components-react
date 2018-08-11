@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import styled from 'react-emotion';
+import { mediaQuery } from '../../../styles';
 import withTheme from '../../ThemeContext/withTheme';
 
 const DialogActions = styled('footer')({
@@ -12,7 +13,10 @@ const DialogActions = styled('footer')({
   textAlign: 'right',
   backgroundColor: '#F2F2F2',
   borderBottomLeftRadius: 4,
-  borderBottomRightRadius: 4
+  borderBottomRightRadius: 4,
+  [mediaQuery(560)]: {
+    marginTop: 'auto'
+  }
 }, ({ theme }) => ({
   fontFamily: theme.fontFamily,
   fontSize: theme.fontSize

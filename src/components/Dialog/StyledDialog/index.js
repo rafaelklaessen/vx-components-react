@@ -1,10 +1,13 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'react-emotion';
 import { white } from '../../../colors';
-import { transition } from '../../../styles';
+import { transition, mediaQuery } from '../../../styles';
 import withTheme from '../../ThemeContext/withTheme';
 
-const StyledDialog = styled('article')({
+const CustomArticle = ({ open, ...props }) => <article {...props} />
+
+const StyledDialog = styled(CustomArticle)({
   position: 'absolute',
   top: '50%',
   left: '50%',
@@ -14,7 +17,18 @@ const StyledDialog = styled('article')({
   backgroundColor: white,
   boxSizing: 'border-box',
   borderRadius: 4,
-  transition
+  transition,
+  [mediaQuery(560)]: {
+    top: 0,
+    left: 0,
+    width: '100%',
+    height: '100%',
+    transform: 'none',
+    opacity: 0,
+    borderRadius: 0,
+    display: 'flex',
+    flexDirection: 'column'
+  }
 }, ({ open, theme }) => {
   const styles = [];
 
@@ -23,7 +37,13 @@ const StyledDialog = styled('article')({
     fontSize: theme.fontSize
   });
 
-  if (open) return { transform: 'translate(-50%, -50%) scale(1)' };
+  if (open) styles.push({
+    transform: 'translate(-50%, -50%) scale(1)',
+    [mediaQuery(560)]: {
+      transform: 'none',
+      opacity: 1
+    }
+  });
 
   return styles;
 });
