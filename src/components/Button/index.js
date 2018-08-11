@@ -21,11 +21,11 @@ const Button = styled('button')({
     transform: 'scale(.95)'
   }
 }, ({
+  borderRadius,
   bold,
   imperfect,
   primary,
   fullWidth,
-  borderRadius,
   disabled,
   rect,
   theme
@@ -70,22 +70,22 @@ const Button = styled('button')({
 });
 
 Button.propTypes = {
-  big: PropTypes.bool,
+  borderRadius: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  bold: PropTypes.bool,
   imperfect: PropTypes.bool,
   primary: PropTypes.bool,
   fullWidth: PropTypes.bool,
-  borderRadius: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   disabled: PropTypes.bool,
   rect: PropTypes.bool,
   theme: PropTypes.object.isRequired
 };
 
 Button.defaultProps = {
-  big: false,
+  borderRadius: 30,
+  bold: false,
   imperfect: false,
   primary: false,
   fullWidth: false,
-  borderRadius: 30,
   disabled: false,
   rect: false
 };

@@ -72,4 +72,10 @@
 <Button primary rect>
   Click me
 </Button>
+
+<br />
+<br />
+<Button borderRadius={4} primary>
+  Click me
+</Button>
 ```

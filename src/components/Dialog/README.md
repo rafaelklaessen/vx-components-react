@@ -20,7 +20,7 @@ const closeModal = () => setState({ open: false });
         Cancel
       </LinkButton>
       <Space width={24} />
-      <Button onClick={closeModal} primary borderRadius={4}>
+      <Button onClick={closeModal} borderRadius={4} primary>
         Delete
       </Button>
     </Dialog.Actions>
@@ -66,7 +66,7 @@ const closeModal = () => setState({ open: false });
         Cancel
       </LinkButton>
       <Space width={24} />
-      <Button onClick={closeModal} primary borderRadius={4}>
+      <Button onClick={closeModal} borderRadius={4} primary>
         Delete
       </Button>
     </Dialog.Actions>
@@ -132,7 +132,7 @@ const StyledActions = styled(Dialog.Actions)({
         Cancel
       </LinkButton>
       <Space width={24} />
-      <Button onClick={closeModal} primary borderRadius={4}>
+      <Button onClick={closeModal} borderRadius={4} primary>
         Delete
       </Button>
     </StyledActions>
