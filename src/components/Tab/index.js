@@ -16,7 +16,7 @@ const Tab = ({ label, tabKey, children, ...props }) => (
 Tab.propTypes = {
   label: PropTypes.node.isRequired,
   tabKey: PropTypes.any,
-  children: PropTypes.node.isRequired
+  children: PropTypes.node
 };
 
 export default Tab;

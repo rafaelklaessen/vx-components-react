@@ -7,6 +7,10 @@
 </VxThemeProvider>
 ```
 
+Note that the default title font family (used by `EnormousTitle`) relies on the `Montserrat` font.
+
+Use this URL to get it: `https://fonts.googleapis.com/css?family=Montserrat:800`
+
 ### Customising the theme
 The `theme` prop defaults to the following:
 ```js static
@@ -15,7 +19,7 @@ const defaultTheme = {
   secondaryColor: '#999999',
   fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif',
   fontSize: 18,
-  titleFontFamily: ''Montserrat', -apple-system, BlinkMacSystemFont, "Segoe UI", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
+  titleFontFamily: '"Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
 };
 ```
 

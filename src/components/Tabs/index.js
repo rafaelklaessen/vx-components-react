@@ -15,7 +15,7 @@ export default class Tabs extends Component {
     labelComponent: PropTypes.func,
     labelProps: PropTypes.object,
     imperfect: PropTypes.bool,
-    children: PropTypes.node.isRequired
+    children: PropTypes.node
   };
 
   static defaultProps = {
