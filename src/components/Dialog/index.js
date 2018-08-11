@@ -11,6 +11,7 @@ import DialogActions from './DialogActions';
 
 const Dialog = ({
   open,
+  width,
   wrapperProps,
   overlayProps,
   closeButtonProps,
@@ -20,7 +21,7 @@ const Dialog = ({
 }) => (
   <DialogWrapper open={open} {...wrapperProps}>
     <DialogOverlay open={open} onClick={onRequestClose} {...overlayProps} />
-    <StyledDialog open={open} {...props}>
+    <StyledDialog open={open} width={width} {...props}>
       <CloseButton onClick={onRequestClose} {...closeButtonProps} />
       {children}
     </StyledDialog>
@@ -29,6 +30,7 @@ const Dialog = ({
 
 Dialog.propTypes = {
   open: PropTypes.bool,
+  width: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   wrapperProps: PropTypes.object,
   overlayProps: PropTypes.object,
   closeButtonProps: PropTypes.object,
@@ -38,6 +40,7 @@ Dialog.propTypes = {
 
 Dialog.defaultProps = {
   open: false,
+  width: 480,
   wrapperProps: null,
   overlayProps: null,
   closeButtonProps: null

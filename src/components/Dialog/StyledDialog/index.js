@@ -13,7 +13,6 @@ const StyledDialog = styled(CustomArticle)({
   left: '50%',
   transform: 'translate(-50%, -50%) scale(0)',
   padding: 32,
-  width: 480,
   backgroundColor: white,
   boxSizing: 'border-box',
   borderRadius: 4,
@@ -29,12 +28,13 @@ const StyledDialog = styled(CustomArticle)({
     display: 'flex',
     flexDirection: 'column'
   }
-}, ({ open, theme }) => {
+}, ({ open, width, theme }) => {
   const styles = [];
 
   styles.push({
     fontFamily: theme.fontFamily,
-    fontSize: theme.fontSize
+    fontSize: theme.fontSize,
+    width
   });
 
   if (open) styles.push({
@@ -50,11 +50,13 @@ const StyledDialog = styled(CustomArticle)({
 
 StyledDialog.propTypes = {
   open: PropTypes.bool,
+  width: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   theme: PropTypes.object.isRequired
 };
 
 StyledDialog.defaultProps = {
-  open: false
+  open: false,
+  width: 480
 };
 
 export default withTheme(StyledDialog);
