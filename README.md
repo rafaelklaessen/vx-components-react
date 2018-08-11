@@ -11,6 +11,7 @@
 [![install size](https://badgen.net/packagephobia/install/vx-components-react)](https://packagephobia.now.sh/result?p=vx-components-react)
 [![dependencies](https://badgen.net/david/dep/rafaelklaessen/vx-components-react)](https://david-dm.org/rafaelklaessen/vx-components-react)
 [![devDependencies](https://badgen.net/david/dev/rafaelklaessen/vx-components-react)](https://david-dm.org/rafaelklaessen/vx-components-react?type=dev)
+[![peerDependencies](https://badgen.net/david/peer/rafaelklaessen/vx-components-react)](https://david-dm.org/rafaelklaessen/vx-components-react?type=peer)
 
 </div>
 
@@ -55,7 +56,7 @@ yarn install && yarn docs
 ```
 This will run the styleguide used in the demo locally. It will automatically update whenever you change a component.
 
-The demo uses react-styleguidist, read more about it [here](https://react-styleguidist.js.org/).
+The demo uses `react-styleguidist`, read more about it [here](https://react-styleguidist.js.org/).
 
 ## License
 MIT
