@@ -6,10 +6,12 @@ import RotatingLoadingSpinnerWrapper from './RotatingLoadingSpinnerWrapper';
 const SimpleLoadingSpinner = ({
   size,
   color,
+  strokeWidth,
   innerWrapperProps,
   svgProps,
   circleProps,
   fullScreen,
+  squaredCorners,
   ...props
 }) => (
   <LoadingSpinnerWrapper fullScreen={fullScreen} {...props}>
@@ -21,8 +23,8 @@ const SimpleLoadingSpinner = ({
           cy="0"
           r={65}
           stroke={color}
-          strokeWidth={20}
-          strokeLinecap="round"
+          strokeWidth={strokeWidth}
+          strokeLinecap={squaredCorners ? 'square' : 'round'}
           strokeDasharray={240}
           strokeDashoffset={80}
           {...circleProps}
@@ -38,16 +40,19 @@ SimpleLoadingSpinner.propTypes = {
   innerWrapperProps: PropTypes.object,
   svgProps: PropTypes.object,
   circleProps: PropTypes.object,
-  fullScreen: PropTypes.bool
+  fullScreen: PropTypes.bool,
+  squaredCorners: PropTypes.bool
 };
 
 SimpleLoadingSpinner.defaultProps = {
   size: 150,
   color: '#58728D',
+  strokeWidth: 20,
   innerWrapperProps: null,
   svgProps: null,
   circleProps: null,
-  fullScreen: false
+  fullScreen: false,
+  squaredCorners: false
 };
 
 export default SimpleLoadingSpinner;

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'react-emotion';
-import { lightGrey, ultraDarkGrey, red } from '../../../colors';
+import { lightGrey, red, ultraDarkGrey } from '../../../colors';
 import { transition } from '../../../styles';
 import withTheme from '../../ThemeContext/withTheme';
 
@@ -16,11 +16,8 @@ const styleAsInput = Component => styled(Component)({
   boxSizing: 'border-box',
   border: `2px solid ${lightGrey}`,
   borderRadius: 20.5,
-  transition,
-  ':focus': {
-    borderColor: ultraDarkGrey
-  }
-}, ({ hasError, fullWidth, disabled, multiLine, theme }) => {
+  transition
+}, ({ hasError, fullWidth, disabled, multiLine, readOnly, theme }) => {
   const styles = [];
 
   styles.push({
@@ -44,6 +41,12 @@ const styleAsInput = Component => styled(Component)({
   if (multiLine) styles.push({
     minHeight: 23 + theme.fontSize,
     resize: 'none'
+  });
+
+  if (!readOnly) styles.push({
+    ':focus': {
+      borderColor: ultraDarkGrey
+    }
   });
 
   return styles;
