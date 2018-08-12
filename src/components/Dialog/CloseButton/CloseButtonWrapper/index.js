@@ -7,6 +7,7 @@ const CloseButtonWrapper = styled('button')({
   top: 32,
   right: 32,
   padding: 0,
+  width: 24,
   height: 24,
   background: 'none',
   border: 0,

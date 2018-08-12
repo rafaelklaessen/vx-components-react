@@ -8,6 +8,7 @@ export Chip from './components/Chip';
 export Code from './components/Code';
 export Dialog from './components/Dialog';
 export EnormousTitle from './components/EnormousTitle';
+export ExpansionPanel from './components/ExpansionPanel';
 export GradientCard from './components/GradientCard';
 export Gradients from './components/Gradients';
 export Label from './components/Label';

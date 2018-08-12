@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import StyledExpansionPanelHeader from './StyledExpansionPanelHeader';
+import ArrowButton from './ArrowButton';
 
 const ExpansionPanelHeader = ({
   expanded,
   onClick,
-  iconProps,
+  arrowButtonProps,
   imperfect,
   disabled,
   children,
@@ -19,13 +20,14 @@ const ExpansionPanelHeader = ({
     {...props}
   >
     {children}
+    <ArrowButton rotated={expanded} {...arrowButtonProps} />
   </StyledExpansionPanelHeader>
 );
 
 ExpansionPanelHeader.propTypes = {
   expanded: PropTypes.bool,
   onClick: PropTypes.func,
-  iconProps: PropTypes.object,
+  arrowButtonProps: PropTypes.object,
   imperfect: PropTypes.bool,
   disabled: PropTypes.bool,
   children: PropTypes.node
@@ -33,7 +35,7 @@ ExpansionPanelHeader.propTypes = {
 
 ExpansionPanelHeader.defaultProps = {
   expanded: false,
-  iconProps: null,
+  arrowButtonProps: null,
   imperfect: false,
   disabled: false
 };

@@ -1,5 +1,5 @@
 ```js
-<CloseButtonWrapper>
+<DeleteButtonWrapper>
   Foo Bar
-</CloseButtonWrapper>
+</DeleteButtonWrapper>
 ```

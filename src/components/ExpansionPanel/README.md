@@ -35,7 +35,7 @@ Imperfect:
 
 Disabled:
 ```js
-<ExpansionPanel>
+<ExpansionPanel disabled>
   <ExpansionPanel.Header>
     Privacy information
   </ExpansionPanel.Header>
@@ -47,7 +47,7 @@ Disabled:
 
 Disabled & expanded:
 ```js
-<ExpansionPanel defaultExpanded>
+<ExpansionPanel defaultExpanded disabled>
   <ExpansionPanel.Header>
     Privacy information
   </ExpansionPanel.Header>
@@ -73,3 +73,5 @@ initialState = { expanded: true };
   </ExpansionPanel.Content>
 </ExpansionPanel>
 ```
+
+Note that the arrow button can be modified through the `arrowButtonProps` prop on `ExpansionPanel.Header`.
