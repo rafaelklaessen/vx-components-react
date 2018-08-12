@@ -19,11 +19,12 @@ export default class Tabs extends Component {
   };
 
   static defaultProps = {
+    defaultValue: 0,
     imperfect: false
   };
 
   state = {
-    value: this.props.defaultValue || 0
+    value: this.props.defaultValue
   };
 
   handleLabelClick = tabKey => () => {

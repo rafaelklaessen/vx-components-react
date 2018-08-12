@@ -32,7 +32,7 @@ export default class Switch extends Component {
   handleClick = () => {
     const { checked, onChange, disabled } = this.props;
     if (disabled) return;
-    if (onChange) return onChange(!this.props.checked);
+    if (onChange) return onChange(!checked);
     this.setState(({ checked }) => ({ checked: !checked }));
   };
 
