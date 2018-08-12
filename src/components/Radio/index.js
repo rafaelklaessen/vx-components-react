@@ -17,7 +17,6 @@ export default class Radio extends Component {
   };
 
   static defaultProps = {
-    defaultChecked: false,
     disabled: false,
     inputProps: null
   };

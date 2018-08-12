@@ -9,25 +9,40 @@ export default class TextInput extends Component {
     id: PropTypes.string,
     label: PropTypes.node,
     errorText: PropTypes.string,
+    value: PropTypes.any,
+    placeholder: PropTypes.any,
+    autoComplete: PropTypes.any,
+    list: PropTypes.any,
+    size: PropTypes.any,
+    pattern: PropTypes.any,
+    minLength: PropTypes.number,
+    maxLength: PropTypes.number,
+    rows: PropTypes.number,
+    columns: PropTypes.number,
     type: PropTypes.string,
-    wrapper: PropTypes.func,
-    wrapperProps: PropTypes.object,
     labelProps: PropTypes.object,
+    inputProps: PropTypes.object,
     errorTextProps: PropTypes.object,
+    onChange: PropTypes.func,
     fullWidth: PropTypes.bool,
     disabled: PropTypes.bool,
-    multiLine: PropTypes.bool
+    multiLine: PropTypes.bool,
+    required: PropTypes.bool,
+    autoFocus: PropTypes.bool,
+    readOnly: PropTypes.bool
   };
 
   static defaultProps = {
     type: 'text',
-    wrapper: null,
-    wrapperProps: null,
     labelProps: null,
+    inputProps: null,
     errorTextProps: null,
     fullWidth: false,
     disabled: false,
-    multiLine: false
+    multiLine: false,
+    required: false,
+    autoFocus: false,
+    readOnly: false
   };
 
   random = Math.random().toString();
@@ -38,19 +53,31 @@ export default class TextInput extends Component {
       label,
       errorText,
       type,
-      wrapper,
-      wrapperProps,
+      value,
+      placeholder,
+      autoComplete,
+      list,
+      size,
+      pattern,
+      minLength,
+      maxLength,
+      rows,
+      columns,
       labelProps,
+      inputProps,
       errorTextProps,
+      onChange,
+      fullWidth,
       disabled,
       multiLine,
+      required,
+      autoFocus,
+      readOnly,
       ...props
     } = this.props;
 
-    const Wrapper = wrapper || 'div';
-
     return (
-      <Wrapper {...wrapperProps}>
+      <div {...props}>
         {label &&
           <InputLabel
             htmlFor={id || this.random}
@@ -63,17 +90,32 @@ export default class TextInput extends Component {
         <StyledInput
           id={id || this.random}
           hasError={!!errorText}
-          disabled={disabled}
           type={multiLine ? null : type}
+          value={value}
+          placeholder={placeholder}
+          autoComplete={autoComplete}
+          list={list}
+          size={size}
+          pattern={pattern}
+          minLength={minLength}
+          maxLength={maxLength}
+          rows={rows}
+          columns={columns}
+          onChange={onChange}
+          fullWidth={fullWidth}
+          disabled={disabled}
           multiLine={multiLine}
-          {...props}
+          required={required}
+          autoFocus={autoFocus}
+          readOnly={readOnly}
+          {...inputProps}
         />
         {errorText &&
           <ErrorText {...errorTextProps}>
             {errorText}
           </ErrorText>
         }
-      </Wrapper>
+      </div>
     );
   };
 }
