@@ -1,3 +1,23 @@
+# Version 0.3.0
+Released 2018-08-12
+
+- Added `Avatar` component
+- Added `Chip` component
+- Added `Dialog` component
+- Added `ExpansionPanel` component
+- Added `GradientCard` component
+- Added `Gradients`
+- Added `Label` component (& improved selection controls API)
+- Improved `TextInput` API
+- Added `LinearGradient` component
+- Added `LinkButton` component
+- Added `LoadingSpinner` component
+- Added `SimpleLoadingSpinner` component
+- Added `Space` component
+- Added `Switch` component
+- Added `Tabs` & `Tab` component
+- Added color/style utils
+
 # Version 0.2.0
 Released 2018-07-29
 
