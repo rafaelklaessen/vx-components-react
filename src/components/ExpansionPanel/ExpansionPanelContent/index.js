@@ -1,11 +1,16 @@
 import PropTypes from 'prop-types';
 import styled from 'react-emotion';
+import { cardGrey } from '../../../colors';
 import { transition } from '../../../styles';
 import withTheme from '../../ThemeContext/withTheme';
 
 const ExpansionPanelContent = styled('section')({
   paddingLeft: 36,
   paddingRight: 36,
+  backgroundColor: cardGrey,
+  borderBottomLeftRadius: 14,
+  borderBottomRightRadius: 14,
+  boxSizing: 'border-box',
   transition
 }, ({ expanded, disabled, theme }) => {
   const styles = [];

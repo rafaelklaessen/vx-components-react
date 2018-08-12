@@ -59,6 +59,7 @@ export default class ExpansionPanel extends Component {
         return React.cloneElement(child, {
           expanded,
           onClick: this.handleHeaderClick,
+          imperfect,
           disabled
         });
       }

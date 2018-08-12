@@ -59,7 +59,7 @@ Disabled & expanded:
 
 Controlled example:
 ```js
-state = { expanded: false };
+initialState = { expanded: true };
 
 <ExpansionPanel
   expanded={state.expanded}
