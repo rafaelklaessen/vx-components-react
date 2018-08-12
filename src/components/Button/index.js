@@ -50,9 +50,13 @@ const Button = styled('button')({
     textTransform: 'uppercase'
   });
 
-  if (imperfect) styles.push({ borderTopRightRadius: 0 });
+  if (imperfect) styles.push({
+    borderTopRightRadius: 0
+  });
 
-  if (fullWidth) styles.push({ width: '100%' });
+  if (fullWidth) styles.push({
+    width: '100%'
+  });
 
   if (disabled) styles.push({
     opacity: .5,
@@ -81,7 +85,7 @@ Button.propTypes = {
 };
 
 Button.defaultProps = {
-  borderRadius: 30,
+  borderRadius: 100,
   bold: false,
   imperfect: false,
   primary: false,

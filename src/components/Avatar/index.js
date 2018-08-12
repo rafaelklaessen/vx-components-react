@@ -26,7 +26,7 @@ const Avatar = styled('figure')({
 Avatar.propTypes = {
   src: PropTypes.string,
   color: PropTypes.string,
-  contentColor: PropTypes.color,
+  contentColor: PropTypes.string,
   size: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   theme: PropTypes.object.isRequired
 };

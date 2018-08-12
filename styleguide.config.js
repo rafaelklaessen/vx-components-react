@@ -60,6 +60,7 @@ module.exports = {
     componentSection('Tabs'),
     componentSection('Tab'),
     componentSection('Avatar'),
+    componentSection('Chip'),
     componentSection('BigTitle'),
     componentSection('EnormousTitle'),
     componentSection('Space'),
