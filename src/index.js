@@ -18,6 +18,7 @@ export Link from './components/Link';
 export LinkButton from './components/LinkButton';
 export LoadingSpinner from './components/LoadingSpinner';
 export Radio from './components/Radio';
+export SelectField from './component/SelectField';
 export SimpleLoadingSpinner from './components/SimpleLoadingSpinner';
 export Space from './components/Space';
 export Switch from './components/Switch';

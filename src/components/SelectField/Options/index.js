@@ -1,7 +1,7 @@
 import React, { Children } from 'react';
 import PropTypes from 'prop-types';
 import OptionWrapper from './OptionWrapper';
-import Option from './Option';
+import { getOptionKey } from '../Option';
 
 const isSelected = (optionKey, value, multi) => {
   if (!multi) return value === optionKey;
@@ -14,11 +14,12 @@ const Options = ({
   onOptionClick,
   multi,
   fullWidth,
-  open
+  open,
+  ...props
 }) => (
-  <OptionWrapper fullWidth={fullWidth} open={open}>
+  <OptionWrapper fullWidth={fullWidth} open={open} {...props}>
     {Children.map(options, (option, i) => {
-      const value = option.props.value || `__option__-${i}`;
+      const value = option.props.value || getOptionKey(i);
       return React.cloneElement(option, {
         value,
         selected: isSelected(value, selectValue, multi),

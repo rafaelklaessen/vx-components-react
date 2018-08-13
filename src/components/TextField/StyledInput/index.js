@@ -15,7 +15,7 @@ const styleAsInput = Component => styled(Component)({
   outlineWidth: 0,
   boxSizing: 'border-box',
   border: `2px solid ${lightGrey}`,
-  borderRadius: 100,
+  borderRadius: 20.5,
   transition
 }, ({ hasError, fullWidth, disabled, multiLine, readOnly, theme }) => {
   const styles = [];

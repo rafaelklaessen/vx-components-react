@@ -1,7 +1,9 @@
 import PropTypes from 'prop-types';
 import styled from 'react-emotion';
-import { transition } from '../../../../styles';
-import withTheme from '../../../ThemeContext/withTheme';
+import { transition } from '../../../styles';
+import withTheme from '../../ThemeContext/withTheme';
+
+export const getOptionKey = id => `__option__-${id}`;
 
 const Option = styled('div')({
   marginBottom: 6,

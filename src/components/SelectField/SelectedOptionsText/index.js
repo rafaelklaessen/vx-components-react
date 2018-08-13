@@ -3,16 +3,19 @@ import PropTypes from 'prop-types';
 import TextWrapper from './TextWrapper';
 import PlaceholderWrapper from './PlaceholderWrapper';
 import Placeholder from './Placeholder';
+import { getOptionKey } from '../Option';
+import SelectArrow from './SelectArrow';
 
 const selectedOptionsText = (
   placeholder,
   options,
   value,
   selectionRenderer,
-  multi
+  placeholderProps,
+  multi,
 ) => {
   const optionsArr = Children.map(options, (option, i) => ({
-    key: option.props.value || `__option__-${i}`,
+    key: option.props.value || getOptionKey(i),
     value: option.props.children
   }));
   const optionsObj = optionsArr.reduce((acc, { key, value }) => {
@@ -21,11 +24,19 @@ const selectedOptionsText = (
   }, {});
 
   if (!value || (Array.isArray(value) && value.length === 0)) {
-    return <Placeholder>{placeholder}</Placeholder>;
+    return (
+      <Placeholder {...placeholderProps}>
+        {placeholder}
+      </Placeholder>
+    );
   }
 
   if (!multi && !optionsObj[value]) {
-    return <Placeholder>{placeholder}</Placeholder>
+    return (
+      <Placeholder {...placeholderProps}>
+        {placeholder}
+      </Placeholder>
+    );
   }
 
   if (selectionRenderer) {
@@ -33,10 +44,30 @@ const selectedOptionsText = (
   }
 
   if (!multi) {
-    return optionsObj[value];
+    return extractChildrenFromNode(optionsObj[value]);
   }
 
-  return value.map(optionKey => optionsObj[optionKey]).sort().join(', ');
+  return value
+    .map(optionKey => optionsObj[optionKey])
+    .map(extractChildrenFromNode)
+    .sort()
+    .join(', ');
+};
+
+const extractChildrenFromNode = (element) => {
+  if (typeof element === 'string' || typeof element === 'number') {
+    return element;
+  }
+
+  if (Array.isArray(element)) {
+    return element.map(extractChildrenFromNode).join('');
+  }
+
+  if (!element.props || !element.props.children) return '';
+
+  const children = element.props.children;
+
+  return extractChildrenFromNode(children);
 };
 
 const SelectedOptionsText = ({
@@ -45,19 +76,25 @@ const SelectedOptionsText = ({
   value,
   onClick,
   selectionRenderer,
+  placeholderWrapperProps,
+  placeholderProps,
+  arrowProps,
   multi,
-  open
+  open,
+  ...props
 }) => (
-  <TextWrapper onClick={onClick}>
-    <PlaceholderWrapper>
+  <TextWrapper onClick={onClick} {...props}>
+    <PlaceholderWrapper {...placeholderWrapperProps}>
       {selectedOptionsText(
         placeholder,
         options,
         value,
         selectionRenderer,
+        placeholderProps,
         multi
       )}
     </PlaceholderWrapper>
+    <SelectArrow {...arrowProps} />
   </TextWrapper>
 );
 
@@ -70,11 +107,17 @@ SelectedOptionsText.propTypes = {
   ]),
   onClick: PropTypes.func,
   selectionRenderer: PropTypes.func,
+  placeholderWrapperProps: PropTypes.object,
+  placeholderProps: PropTypes.object,
+  arrowProps: PropTypes.object,
   multi: PropTypes.bool,
   open: PropTypes.bool
 };
 
 SelectedOptionsText.defaultProps = {
+  placeholderWrapperProps: null,
+  placeholderProps: null,
+  arrowProps: null,
   multi: false,
   open: false
 };

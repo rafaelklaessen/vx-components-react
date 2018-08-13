@@ -5,7 +5,7 @@ import SelectWrapper from './SelectWrapper';
 import SelectedOptionsText from './SelectedOptionsText';
 import CloseOverlay from './CloseOverlay';
 import Options from './Options';
-import Option from './Options/Option';
+import Option from './Option';
 import ErrorText from '../TextField/ErrorText';
 
 export default class SelectField extends Component {
@@ -25,6 +25,13 @@ export default class SelectField extends Component {
     onChange: PropTypes.func,
     selectionRenderer: PropTypes.func,
     labelProps: PropTypes.object,
+    selectWrapperProps: PropTypes.object,
+    selectionTextProps: PropTypes.object,
+    placeholderWrapperProps: PropTypes.object,
+    placeholderProps: PropTypes.object,
+    arrowProps: PropTypes.object,
+    closeOverlayProps: PropTypes.object,
+    optionWrapperProps: PropTypes.object,
     errorTextProps: PropTypes.object,
     multi: PropTypes.bool,
     fullWidth: PropTypes.bool,
@@ -34,6 +41,13 @@ export default class SelectField extends Component {
 
   static defaultProps = {
     labelProps: null,
+    selectWrapperProps: null,
+    selectionTextProps: null,
+    placeholderWrapperProps: null,
+    placeholderProps: null,
+    arrowProps: null,
+    closeOverlayProps: null,
+    optionWrapperProps: null,
     errorTextProps: null,
     multi: false,
     fullWidth: false,
@@ -115,6 +129,13 @@ export default class SelectField extends Component {
       onChange,
       selectionRenderer,
       labelProps,
+      selectWrapperProps,
+      selectionTextProps,
+      placeholderWrapperProps,
+      placeholderProps,
+      arrowProps,
+      closeOverlayProps,
+      optionWrapperProps,
       errorTextProps,
       multi,
       fullWidth,
@@ -142,19 +163,25 @@ export default class SelectField extends Component {
           hasError={!!errorText}
           fullWidth={fullWidth}
           disabled={disabled}
+          {...selectWrapperProps}
         >
           <SelectedOptionsText
             placeholder={placeholder}
             options={children}
             value={value}
-            multi={multi}
             onClick={this.handleClick}
             selectionRenderer={selectionRenderer}
+            placeholderWrapperProps={placeholderWrapperProps}
+            placeholderProps={placeholderProps}
+            arrowProps={arrowProps}
+            multi={multi}
             open={open}
+            {...selectionTextProps}
           />
           <CloseOverlay
             onClick={this.handleClick}
             open={open}
+            {...closeOverlayProps}
           />
           <Options
             options={children}
@@ -163,6 +190,7 @@ export default class SelectField extends Component {
             multi={multi}
             fullWidth={fullWidth}
             open={open}
+            {...optionWrapperProps}
           />
         </SelectWrapper>
         {errorText &&

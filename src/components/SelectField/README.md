@@ -1,5 +1,5 @@
 ```js
-<SelectField>
+<SelectField placeholder="Pick an option">
   <SelectField.Option>
     Option 1
   </SelectField.Option>
@@ -11,19 +11,7 @@
 
 With a label:
 ```js
-<SelectField label="Choose an option">
-  <SelectField.Option>
-    Option 1
-  </SelectField.Option>
-  <SelectField.Option>
-    Option 2
-  </SelectField.Option>
-</SelectField>
-```
-
-With a placeholder:
-```js
-<SelectField placeholder="Choose an option">
+<SelectField label="Pick an option">
   <SelectField.Option>
     Option 1
   </SelectField.Option>
@@ -50,7 +38,22 @@ With bot a label & a placeholder
 
 With an error:
 ```js
-<SelectField errorText="Oh no!">
+<SelectField
+  placeholder="Pick an option"
+  errorText="Oh no!"
+>
+  <SelectField.Option>
+    Option 1
+  </SelectField.Option>
+  <SelectField.Option>
+    Option 2
+  </SelectField.Option>
+</SelectField>
+```
+
+Blank select:
+```js
+<SelectField>
   <SelectField.Option>
     Option 1
   </SelectField.Option>
@@ -175,3 +178,41 @@ Custom `selectionRenderer`:
 Signature of `selectionRenderer`:
 
 `(value: any | any[], options: Map<any, any>, multi: boolean) => any`
+
+Note how the default `selectionRenderer` handles JSX tags:
+```js
+<SelectField label="I have JSX options!">
+  <SelectField.Option>
+    <h1>Option 1<em>4</em></h1>
+  </SelectField.Option>
+  <SelectField.Option>
+    <Code>Foo</Code>
+  </SelectField.Option>
+</SelectField>
+```
+
+Customised version:
+```js
+<SelectField
+  label="Pick an option, but this time the select is crazy"
+  placeholder="Pick an option"
+  errorText="Oh no!"
+  labelProps={{ style: { color: 'purple' } }}
+  selectWrapperProps={{ style: { backgroundColor: 'green' } }}
+  selectionTextProps={{ style: { border: '1px solid pink' } }}
+  placeholderWrapperProps={{ style: { border: '1px solid red' } }}
+  placeholderProps={{ style: { color: 'orange' } }}
+  arrowProps={{ style: { width: 32, height: 32, border: '1px solid purple' } }}
+  closeOverlayProps={{ style: { backgroundColor: 'rgba(0, 0, 0, .3)' } }}
+  optionWrapperProps={{ style: { backgroundColor: 'salmon' } }}
+  errorTextProps={{ style: { textDecoration: 'underline' } }}
+  style={{ style: { padding: 24 } }}
+>
+  <SelectField.Option style={{ color: 'green' }}>
+    Option 1
+  </SelectField.Option>
+  <SelectField.Option style={{ color: 'green' }}>
+    Option 2
+  </SelectField.Option>
+</SelectField>
+```
