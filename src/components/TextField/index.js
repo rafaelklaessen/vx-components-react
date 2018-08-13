@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import InputLabel from './InputLabel';
+import TextFieldLabel from './TextFieldLabel';
 import StyledInput from './StyledInput';
 import ErrorText from './ErrorText';
 
@@ -79,13 +79,13 @@ export default class TextField extends Component {
     return (
       <div {...props}>
         {label &&
-          <InputLabel
+          <TextFieldLabel
             htmlFor={id || this.random}
             disabled={disabled}
             {...labelProps}
           >
             {label}
-          </InputLabel>
+          </TextFieldLabel>
         }
         <StyledInput
           id={id || this.random}

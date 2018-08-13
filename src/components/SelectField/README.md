@@ -9,9 +9,48 @@
 </SelectField>
 ```
 
+With a label:
+```js
+<SelectField label="Choose an option">
+  <SelectField.Option>
+    Option 1
+  </SelectField.Option>
+  <SelectField.Option>
+    Option 2
+  </SelectField.Option>
+</SelectField>
+```
+
 With a placeholder:
 ```js
 <SelectField placeholder="Choose an option">
+  <SelectField.Option>
+    Option 1
+  </SelectField.Option>
+  <SelectField.Option>
+    Option 2
+  </SelectField.Option>
+</SelectField>
+```
+
+With bot a label & a placeholder
+```js
+<SelectField
+  label="Pick your favourite colour"
+  placeholder="Choose a colour"
+>
+  <SelectField.Option>
+    Red
+  </SelectField.Option>
+  <SelectField.Option>
+    Green
+  </SelectField.Option>
+</SelectField>
+```
+
+With an error:
+```js
+<SelectField errorText="Oh no!">
   <SelectField.Option>
     Option 1
   </SelectField.Option>
@@ -134,4 +173,5 @@ Custom `selectionRenderer`:
 ```
 
 Signature of `selectionRenderer`:
+
 `(value: any | any[], options: Map<any, any>, multi: boolean) => any`

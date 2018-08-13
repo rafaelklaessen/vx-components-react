@@ -15,7 +15,7 @@ const styleAsInput = Component => styled(Component)({
   outlineWidth: 0,
   boxSizing: 'border-box',
   border: `2px solid ${lightGrey}`,
-  borderRadius: 20.5,
+  borderRadius: 100,
   transition
 }, ({ hasError, fullWidth, disabled, multiLine, readOnly, theme }) => {
   const styles = [];
@@ -25,13 +25,13 @@ const styleAsInput = Component => styled(Component)({
     fontSize: theme.fontSize
   });
 
-  if (hasError) {
-    styles.push({
-      borderColor: red
-    });
-  }
+  if (hasError) styles.push({
+    borderColor: red
+  });
 
-  if (fullWidth) styles.push({ width: '100%' });
+  if (fullWidth) styles.push({
+    width: '100%'
+  });
 
   if (disabled) styles.push({
     opacity: .5,

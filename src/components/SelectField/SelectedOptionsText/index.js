@@ -45,8 +45,8 @@ const SelectedOptionsText = ({
   value,
   onClick,
   selectionRenderer,
-  open,
-  multi
+  multi,
+  open
 }) => (
   <TextWrapper onClick={onClick}>
     <PlaceholderWrapper>
@@ -62,15 +62,21 @@ const SelectedOptionsText = ({
 );
 
 SelectedOptionsText.propTypes = {
-  placeholder: PropTypes.string,
-  options: PropTypes.object.isRequired,
+  placeholder: PropTypes.node,
+  options: PropTypes.node,
   value: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.arrayOf(PropTypes.string)
   ]),
-  multi: PropTypes.bool.isRequired,
-  onClick: PropTypes.func.isRequired,
-  open: PropTypes.bool.isRequired
+  onClick: PropTypes.func,
+  selectionRenderer: PropTypes.func,
+  multi: PropTypes.bool,
+  open: PropTypes.bool
+};
+
+SelectedOptionsText.defaultProps = {
+  multi: false,
+  open: false
 };
 
 export default SelectedOptionsText;

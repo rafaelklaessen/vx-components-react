@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import TextFieldLabel from '../TextField/TextFieldLabel';
 import SelectWrapper from './SelectWrapper';
 import SelectedOptionsText from './SelectedOptionsText';
+import CloseOverlay from './CloseOverlay';
 import Options from './Options';
 import Option from './Options/Option';
 import ErrorText from '../TextField/ErrorText';
 
 export default class SelectField extends Component {
   static propTypes = {
-    placeholder: PropTypes.node,
+    id: PropTypes.string,
+    label: PropTypes.node,
     defaultValue: PropTypes.oneOfType([
       PropTypes.any,
       PropTypes.arrayOf(PropTypes.any)
@@ -17,9 +20,12 @@ export default class SelectField extends Component {
       PropTypes.any,
       PropTypes.arrayOf(PropTypes.any)
     ]),
+    placeholder: PropTypes.node,
     errorText: PropTypes.node,
     onChange: PropTypes.func,
     selectionRenderer: PropTypes.func,
+    labelProps: PropTypes.object,
+    errorTextProps: PropTypes.object,
     multi: PropTypes.bool,
     fullWidth: PropTypes.bool,
     disabled: PropTypes.bool,
@@ -27,6 +33,8 @@ export default class SelectField extends Component {
   };
 
   static defaultProps = {
+    labelProps: null,
+    errorTextProps: null,
     multi: false,
     fullWidth: false,
     disabled: false
@@ -39,7 +47,12 @@ export default class SelectField extends Component {
     open: false
   };
 
-  handleClick = () => this.setState({ open: !this.state.open });
+  random = Math.random().toString();
+
+  handleClick = () => {
+    if (this.props.disabled) return;
+    this.setState(({ open }) => ({ open: !open }));
+  };
 
   handleOptionClick = newValue => () => {
     const { onChange, multi, disabled } = this.props;
@@ -93,12 +106,16 @@ export default class SelectField extends Component {
 
   render = () => {
     const {
-      placeholder,
+      id,
+      label,
       defaultValue,
       value: valueProp,
+      placeholder,
       errorText,
       onChange,
       selectionRenderer,
+      labelProps,
+      errorTextProps,
       multi,
       fullWidth,
       disabled,
@@ -111,7 +128,21 @@ export default class SelectField extends Component {
 
     return (
       <div {...props}>
-        <SelectWrapper fullWidth={fullWidth} hasError={!!errorText}>
+        {label &&
+          <TextFieldLabel
+            id={id || this.random}
+            disabled={disabled}
+            {...labelProps}
+          >
+            {label}
+          </TextFieldLabel>
+        }
+        <SelectWrapper
+          id={id || this.random}
+          hasError={!!errorText}
+          fullWidth={fullWidth}
+          disabled={disabled}
+        >
           <SelectedOptionsText
             placeholder={placeholder}
             options={children}
@@ -121,16 +152,23 @@ export default class SelectField extends Component {
             selectionRenderer={selectionRenderer}
             open={open}
           />
+          <CloseOverlay
+            onClick={this.handleClick}
+            open={open}
+          />
           <Options
             options={children}
             selectValue={value}
-            multi={multi}
             onOptionClick={this.handleOptionClick}
+            multi={multi}
+            fullWidth={fullWidth}
             open={open}
           />
         </SelectWrapper>
         {errorText &&
-          <ErrorText>{errorText}</ErrorText>
+          <ErrorText {...errorTextProps}>
+            {errorText}
+          </ErrorText>
         }
       </div>
     );
