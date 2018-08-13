@@ -4,7 +4,7 @@ import InputLabel from './InputLabel';
 import StyledInput from './StyledInput';
 import ErrorText from './ErrorText';
 
-export default class TextInput extends Component {
+export default class TextField extends Component {
   static propTypes = {
     id: PropTypes.string,
     label: PropTypes.node,

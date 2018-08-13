@@ -1,5 +1,5 @@
 ```js
-<TextInput
+<TextField
   label="Enter your name"
   placeholder="John Doe"
 />
@@ -9,7 +9,7 @@ Controlled:
 ```js
 initialState = { value: '' };
 
-<TextInput
+<TextField
   label="Enter your name"
   placeholder="John Doe"
   value={state.value}
@@ -19,7 +19,7 @@ initialState = { value: '' };
 
 With an error:
 ```js
-<TextInput
+<TextField
   label="Enter your name"
   placeholder="John Doe"
   defaultValue="Foo"
@@ -29,17 +29,17 @@ With an error:
 
 No label:
 ```js
-<TextInput placeholder="Name" />
+<TextField placeholder="Name" />
 ```
 
 A completely blank input:
 ```js
-<TextInput />
+<TextField />
 ```
 
 With `type="password"`: (Note that the `type` prop defaults to `text`.)
 ```js
-<TextInput
+<TextField
   label="Choose a password"
   placeholder="Password"
   type="password"
@@ -48,7 +48,7 @@ With `type="password"`: (Note that the `type` prop defaults to `text`.)
 
 Fullwidth:
 ```js
-<TextInput
+<TextField
   label="Enter your name"
   placeholder="John Doe"
   fullWidth
@@ -57,7 +57,7 @@ Fullwidth:
 
 Disabled:
 ```js
-<TextInput
+<TextField
   label="Enter your name"
   placeholder="John Doe"
   disabled
@@ -66,7 +66,7 @@ Disabled:
 
 `multiLine` (renders a `textarea`):
 ```js
-<TextInput
+<TextField
   label="Write something about yourself"
   placeholder="My name is Foo and I live in Bar"
   multiLine
@@ -74,9 +74,9 @@ Disabled:
 />
 ```
 
-You can also pass an ID to the `TextInput`. If you don't pass one, a random ID will be generated.
+You can also pass an ID to the `TextField`. If you don't pass one, a random ID will be generated.
 ```js
-<TextInput
+<TextField
   id="foobar"
   label="Enter your name"
   placeholder="John Doe"
@@ -85,7 +85,7 @@ You can also pass an ID to the `TextInput`. If you don't pass one, a random ID w
 
 You can customize the input through `inputProps`:
 ```js
-<TextInput
+<TextField
   label="Enter your name"
   placeholder="John Doe"
   inputProps={{ style: { backgroundColor: 'green' } }}
