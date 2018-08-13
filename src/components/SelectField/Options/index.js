@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Children } from 'react';
 import PropTypes from 'prop-types';
 import OptionWrapper from './OptionWrapper';
 import Option from './Option';
@@ -8,25 +8,24 @@ const isSelected = (optionKey, value, multi) => {
   return value.indexOf(optionKey) >= 0;
 };
 
-const Options = ({ options, value, multi, onOptionClick, open }) => (
+const Options = ({ options, selectValue, multi, onOptionClick, open }) => (
   <OptionWrapper open={open}>
-    {Object.entries(options).map(([ optionKey, optionValue ]) =>
-      <Option
-        selected={isSelected(optionKey, value, multi)}
-        onClick={onOptionClick(optionKey)}
-        key={optionKey}
-      >
-        {optionValue}
-      </Option>
-    )}
+    {Children.map(options, (option, i) => {
+      const value = option.props.value || `__option__-${i}`;
+      return React.cloneElement(option, {
+        value,
+        selected: isSelected(value, selectValue, multi),
+        onClick: onOptionClick(value)
+      });
+    })}
   </OptionWrapper>
 );
 
 Options.propTypes = {
   options: PropTypes.object.isRequired,
-  value: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.arrayOf(PropTypes.string)
+  selectValue: PropTypes.oneOfType([
+    PropTypes.any,
+    PropTypes.arrayOf(PropTypes.any)
   ]),
   multi: PropTypes.bool.isRequired,
   onOptionClick: PropTypes.func.isRequired,
