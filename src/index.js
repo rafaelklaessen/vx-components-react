@@ -1,4 +1,5 @@
 export Avatar from './components/Avatar';
+export Badge from './components/Badge';
 export BigTitle from './components/BigTitle';
 export BlockQuote from './components/BlockQuote';
 export Button from './components/Button';
@@ -24,6 +25,7 @@ export Tab from './components/Tab';
 export Tabs from './components/Tabs';
 export TextInput from './components/TextInput';
 export VxThemeProvider from './components/ThemeContext/VxThemeProvider';
+export WithBadge from './components/WithBadge';
 
 export * as colors from './colors';
 export * as styles from './styles';
