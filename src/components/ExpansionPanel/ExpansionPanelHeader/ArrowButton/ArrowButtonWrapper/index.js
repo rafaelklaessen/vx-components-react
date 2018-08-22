@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import styled from 'react-emotion';
-import { darkGrey, black } from '../../../../../colors';
+import { ultraDarkGrey, black } from '../../../../../colors';
 import { transition } from '../../../../../styles';
 
 const ArrowButtonWrapper = styled('button')({
@@ -10,7 +10,7 @@ const ArrowButtonWrapper = styled('button')({
   height: 28,
   background: 'none',
   border: 0,
-  fill: darkGrey,
+  fill: ultraDarkGrey,
   cursor: 'pointer',
   appearance: 'none',
   outlineWidth: 0,

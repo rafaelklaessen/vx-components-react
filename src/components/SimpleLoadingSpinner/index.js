@@ -47,7 +47,7 @@ SimpleLoadingSpinner.propTypes = {
 SimpleLoadingSpinner.defaultProps = {
   size: 150,
   color: '#58728D',
-  strokeWidth: 20,
+  strokeWidth: 15,
   innerWrapperProps: null,
   svgProps: null,
   circleProps: null,
