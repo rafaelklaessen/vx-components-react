@@ -27,10 +27,10 @@ export default class Tabs extends Component {
     value: this.props.defaultValue
   };
 
-  handleLabelClick = tabKey => () => {
+  handleLabelClick = value => () => {
     const onChange = this.props.onChange;
-    if (onChange) return onChange(tabKey);
-    this.setState({ value: tabKey });
+    if (onChange) return onChange(value);
+    this.setState({ value: value });
   };
 
   render = () => {
@@ -50,7 +50,7 @@ export default class Tabs extends Component {
 
     const children = Children.map(originalChildren, (child, i) =>
       React.cloneElement(child, {
-        tabKey: child.props.tabKey || i
+        value: child.props.value || i
       })
     );
 
@@ -63,8 +63,8 @@ export default class Tabs extends Component {
           <LabelWrapper imperfect={imperfect} {...labelWrapperProps}>
             {Children.map(children, child =>
               <LabelComponent
-                active={child.props.tabKey === value}
-                onClick={this.handleLabelClick(child.props.tabKey)}
+                active={child.props.value === value}
+                onClick={this.handleLabelClick(child.props.value)}
                 {...labelProps}
               >
                 {child.props.label}

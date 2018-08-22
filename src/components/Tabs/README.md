@@ -14,10 +14,10 @@ Controlled example:
 initialState = { value: 'overview' };
 
 <Tabs value={state.value} onChange={value => setState({ value })}>
-  <Tab label="Overview" tabKey="overview">
+  <Tab label="Overview" value="overview">
     Foo
   </Tab>
-  <Tab label="Technical information" tabKey="technical-info">
+  <Tab label="Technical information" value="technical-info">
     Bar
   </Tab>
 </Tabs>
