@@ -56,6 +56,7 @@ module.exports = {
     componentSection('Link'),
     componentSection('LoadingSpinner'),
     componentSection('SimpleLoadingSpinner'),
+    componentSection('ProgressBar'),
     componentSection('Code'),
     componentSection('BlockQuote'),
     componentSection('Tabs'),
