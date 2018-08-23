@@ -21,7 +21,7 @@ With a label:
 </SelectField>
 ```
 
-With bot a label & a placeholder
+With both a label & a placeholder
 ```js
 <SelectField
   label="Pick your favourite colour"
