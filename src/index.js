@@ -19,7 +19,7 @@ export LinkButton from './components/LinkButton';
 export LoadingSpinner from './components/LoadingSpinner';
 export ProgressBar from './components/ProgressBar';
 export Radio from './components/Radio';
-export SelectField from './component/SelectField';
+export SelectField from './components/SelectField';
 export SimpleLoadingSpinner from './components/SimpleLoadingSpinner';
 export Space from './components/Space';
 export Switch from './components/Switch';

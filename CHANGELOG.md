@@ -1,3 +1,9 @@
+# Version 1.0.0-rc.1
+Released 2018-08-23
+
+- Fixed `SelectField` export
+- Updated readme
+
 # Version 1.0.0-rc.0
 Released 2018-08-23
 

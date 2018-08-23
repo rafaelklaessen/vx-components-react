@@ -26,8 +26,8 @@ npm install vx-components-react
 yarn add vx-components-react
 ```
 
-## Documentation/demo
-You can find the documentation/demos [here](https://vx-components-react.netlify.com/).
+## Documentation & demos
+You can find the documentation and demos [here](https://vx-components-react.netlify.com/).
 
 ## Quick example
 View the [demos](https://vx-components-react.netlify.com/) to see all components.
