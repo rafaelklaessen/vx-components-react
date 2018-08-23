@@ -17,6 +17,7 @@ export LinearGradient from './components/LinearGradient';
 export Link from './components/Link';
 export LinkButton from './components/LinkButton';
 export LoadingSpinner from './components/LoadingSpinner';
+export ProgressBar from './components/ProgressBar';
 export Radio from './components/Radio';
 export SelectField from './component/SelectField';
 export SimpleLoadingSpinner from './components/SimpleLoadingSpinner';
@@ -24,7 +25,7 @@ export Space from './components/Space';
 export Switch from './components/Switch';
 export Tab from './components/Tab';
 export Tabs from './components/Tabs';
-export TextInput from './components/TextInput';
+export TextField from './components/TextField';
 export VxThemeProvider from './components/ThemeContext/VxThemeProvider';
 export WithBadge from './components/WithBadge';
 
