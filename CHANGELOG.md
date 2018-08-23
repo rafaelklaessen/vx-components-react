@@ -1,3 +1,14 @@
+# Version 1.0.0-rc.0
+Released 2018-08-23
+
+- Added `Badge` component
+- Added `WithBadge` component
+- Added `SelectField` component
+- Added `ProgressBar` component
+- Renamed `TextInput` to `TextField`
+- Slimmed down `SimpleLoadingSpinner`
+- Renamed `tabKey` prop on the `Tab` component to `value`
+
 # Version 0.3.0
 Released 2018-08-12
 

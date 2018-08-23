@@ -1,6 +1,6 @@
 {
   "name": "vx-components-react",
-  "version": "0.3.0",
+  "version": "1.0.0-rc.0",
   "description": "vx-components-react component library",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -14,9 +14,6 @@
     "build": "mv -v .babelrc .temp_babelrc && nwb build-react-component && mv -v .temp_babelrc .babelrc",
     "clean": "nwb clean-module && nwb clean-demo",
     "start": "nwb serve-react-demo",
-    "test": "nwb test-react",
-    "test:coverage": "nwb test-react --coverage",
-    "test:watch": "nwb test-react --server",
     "docs": "styleguidist server",
     "docs:static": "styleguidist build"
   },
