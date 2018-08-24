@@ -1,3 +1,8 @@
+# Version 1.0.0
+Released 2018-08-24
+
+- Re-release of `v1.0.0-rc.1`
+
 # Version 1.0.0-rc.1
 Released 2018-08-23
 
